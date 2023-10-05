@@ -31,16 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(search));
             pictureBox3 = new PictureBox();
             label1 = new Label();
-            textBox1 = new TextBox();
-            button1 = new Button();
+            txtSearch = new TextBox();
+            btnSearch = new Button();
             listView1 = new ListView();
             pictureBox4 = new PictureBox();
             pictureBox5 = new PictureBox();
             pictureBox6 = new PictureBox();
-            listView2 = new ListView();
+            searchLv = new ListView();
             columnHeader1 = new ColumnHeader();
-            BookName = new ColumnHeader();
-            BookAuthor = new ColumnHeader();
+            title = new ColumnHeader();
+            author = new ColumnHeader();
             BookYear = new ColumnHeader();
             BookNum = new ColumnHeader();
             BookPublisher = new ColumnHeader();
@@ -73,24 +73,26 @@
             label1.TabIndex = 17;
             label1.Text = "책장 모아";
             // 
-            // textBox1
+            // txtSearch
             // 
-            textBox1.BackColor = SystemColors.Menu;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("강원교육현옥샘 Medium", 30F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox1.Location = new Point(58, 110);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(507, 46);
-            textBox1.TabIndex = 18;
+            txtSearch.BackColor = SystemColors.Menu;
+            txtSearch.BorderStyle = BorderStyle.None;
+            txtSearch.Font = new Font("강원교육현옥샘 Medium", 30F, FontStyle.Bold, GraphicsUnit.Point);
+            txtSearch.Location = new Point(58, 110);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(507, 46);
+            txtSearch.TabIndex = 18;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
-            // button1
+            // btnSearch
             // 
-            button1.Location = new Point(585, 110);
-            button1.Name = "button1";
-            button1.Size = new Size(105, 46);
-            button1.TabIndex = 19;
-            button1.Text = "검색";
-            button1.UseVisualStyleBackColor = true;
+            btnSearch.Location = new Point(585, 110);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(105, 46);
+            btnSearch.TabIndex = 19;
+            btnSearch.Text = "검색";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // listView1
             // 
@@ -135,33 +137,33 @@
             pictureBox6.TabIndex = 23;
             pictureBox6.TabStop = false;
             // 
-            // listView2
+            // searchLv
             // 
-            listView2.Columns.AddRange(new ColumnHeader[] { columnHeader1, BookName, BookAuthor, BookYear, BookNum, BookPublisher, columnHeader2 });
-            listView2.Location = new Point(50, 162);
-            listView2.Name = "listView2";
-            listView2.Size = new Size(650, 677);
-            listView2.TabIndex = 24;
-            listView2.UseCompatibleStateImageBehavior = false;
-            listView2.View = View.Details;
-            listView2.SelectedIndexChanged += listView2_SelectedIndexChanged;
+            searchLv.Columns.AddRange(new ColumnHeader[] { columnHeader1, title, author, BookYear, BookNum, BookPublisher, columnHeader2 });
+            searchLv.Location = new Point(50, 162);
+            searchLv.Name = "searchLv";
+            searchLv.Size = new Size(650, 677);
+            searchLv.TabIndex = 24;
+            searchLv.UseCompatibleStateImageBehavior = false;
+            searchLv.View = View.Details;
+            searchLv.SelectedIndexChanged += searchLv_SelectedIndexChanged_1;
             // 
             // columnHeader1
             // 
             columnHeader1.Text = "";
             columnHeader1.Width = 1;
             // 
-            // BookName
+            // title
             // 
-            BookName.Text = "책 이름";
-            BookName.TextAlign = HorizontalAlignment.Center;
-            BookName.Width = 130;
+            title.Text = "책 이름";
+            title.TextAlign = HorizontalAlignment.Center;
+            title.Width = 130;
             // 
-            // BookAuthor
+            // author
             // 
-            BookAuthor.Text = "저자";
-            BookAuthor.TextAlign = HorizontalAlignment.Center;
-            BookAuthor.Width = 130;
+            author.Text = "저자";
+            author.TextAlign = HorizontalAlignment.Center;
+            author.Width = 130;
             // 
             // BookYear
             // 
@@ -201,14 +203,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(734, 961);
-            Controls.Add(listView2);
+            Controls.Add(txtSearch);
+            Controls.Add(searchLv);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox6);
             Controls.Add(pictureBox5);
             Controls.Add(listView1);
-            Controls.Add(button1);
-            Controls.Add(textBox1);
+            Controls.Add(btnSearch);
             Controls.Add(label1);
             Controls.Add(pictureBox3);
             Name = "search";
@@ -227,18 +229,18 @@
 
         private PictureBox pictureBox3;
         private Label label1;
-        private TextBox textBox1;
-        private Button button1;
+        private TextBox txtSearch;
+        private Button btnSearch;
         private ListView listView1;
         private PictureBox pictureBox4;
         private PictureBox pictureBox5;
         private PictureBox pictureBox6;
-        private ListView listView2;
-        private ColumnHeader BookAuthor;
+        private ListView searchLv;
+        private ColumnHeader author;
         private ColumnHeader BookPublisher;
         private ColumnHeader BookYear;
         private ColumnHeader BookNum;
-        private ColumnHeader BookName;
+        private ColumnHeader title;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private FlowLayoutPanel flowLayoutPanel1;

@@ -76,6 +76,7 @@
             button1.TabIndex = 6;
             button1.Text = "검색";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // pictureBox1
             // 
