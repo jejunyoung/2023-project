@@ -28,7 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ColumnHeader columnHeader1;
+            ColumnHeader title;
+            ColumnHeader author;
+            ColumnHeader BookYear;
+            ColumnHeader BookNum;
+            ColumnHeader BookPublisher;
+            ColumnHeader columnHeader2;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(search));
+            ListViewItem listViewItem1 = new ListViewItem("");
             pictureBox3 = new PictureBox();
             label1 = new Label();
             txtSearch = new TextBox();
@@ -38,6 +46,7 @@
             pictureBox5 = new PictureBox();
             pictureBox6 = new PictureBox();
             searchLv = new ListView();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             columnHeader1 = new ColumnHeader();
             title = new ColumnHeader();
             author = new ColumnHeader();
@@ -45,12 +54,52 @@
             BookNum = new ColumnHeader();
             BookPublisher = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "";
+            columnHeader1.Width = 1;
+            // 
+            // title
+            // 
+            title.Text = "title";
+            title.TextAlign = HorizontalAlignment.Center;
+            title.Width = 130;
+            // 
+            // author
+            // 
+            author.Text = "author";
+            author.TextAlign = HorizontalAlignment.Center;
+            author.Width = 130;
+            // 
+            // BookYear
+            // 
+            BookYear.Text = "발행연도";
+            BookYear.TextAlign = HorizontalAlignment.Center;
+            BookYear.Width = 130;
+            // 
+            // BookNum
+            // 
+            BookNum.Text = "청구 기호";
+            BookNum.TextAlign = HorizontalAlignment.Center;
+            BookNum.Width = 130;
+            // 
+            // BookPublisher
+            // 
+            BookPublisher.Text = "발행자";
+            BookPublisher.TextAlign = HorizontalAlignment.Center;
+            BookPublisher.Width = 130;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "";
+            columnHeader2.TextAlign = HorizontalAlignment.Right;
+            columnHeader2.Width = 0;
             // 
             // pictureBox3
             // 
@@ -140,6 +189,7 @@
             // searchLv
             // 
             searchLv.Columns.AddRange(new ColumnHeader[] { columnHeader1, title, author, BookYear, BookNum, BookPublisher, columnHeader2 });
+            searchLv.Items.AddRange(new ListViewItem[] { listViewItem1 });
             searchLv.Location = new Point(50, 162);
             searchLv.Name = "searchLv";
             searchLv.Size = new Size(650, 677);
@@ -147,47 +197,6 @@
             searchLv.UseCompatibleStateImageBehavior = false;
             searchLv.View = View.Details;
             searchLv.SelectedIndexChanged += searchLv_SelectedIndexChanged_1;
-            // 
-            // columnHeader1
-            // 
-            columnHeader1.Text = "";
-            columnHeader1.Width = 1;
-            // 
-            // title
-            // 
-            title.Text = "책 이름";
-            title.TextAlign = HorizontalAlignment.Center;
-            title.Width = 130;
-            // 
-            // author
-            // 
-            author.Text = "저자";
-            author.TextAlign = HorizontalAlignment.Center;
-            author.Width = 130;
-            // 
-            // BookYear
-            // 
-            BookYear.Text = "발행연도";
-            BookYear.TextAlign = HorizontalAlignment.Center;
-            BookYear.Width = 130;
-            // 
-            // BookNum
-            // 
-            BookNum.Text = "청구 기호";
-            BookNum.TextAlign = HorizontalAlignment.Center;
-            BookNum.Width = 130;
-            // 
-            // BookPublisher
-            // 
-            BookPublisher.Text = "발행자";
-            BookPublisher.TextAlign = HorizontalAlignment.Center;
-            BookPublisher.Width = 130;
-            // 
-            // columnHeader2
-            // 
-            columnHeader2.Text = "";
-            columnHeader2.TextAlign = HorizontalAlignment.Right;
-            columnHeader2.Width = 0;
             // 
             // flowLayoutPanel1
             // 

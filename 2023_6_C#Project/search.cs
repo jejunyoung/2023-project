@@ -1,77 +1,65 @@
-﻿using System;
-using System.Net.Http;
-using System.Windows.Forms;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using System.Net;
+using System.IO;
+using System.Xml;
 
 namespace _2023_6_C_Project
 {
     public partial class search : Form
     {
 
-        const string targetUrl = "http://www.aladin.co.kr/ttb/apiguide.aspx";
         const string servicekey = "ttbwere090851412001";
+        const string apiUrl = $"http://www.aladin.co.kr/ttb/api/ItemSearch.aspx?";
 
         public search()
         {
             InitializeComponent();
         }
 
-        private async void btnSearch_Click(object sender, EventArgs e)
+        public static string getResults()
         {
+            string result = string.Empty;
             try
             {
-                using (HttpClient client = new HttpClient())
+                WebClient client = new WebClient();
+                string url = string.Format(@"{0}?serviceKey={1}", apiUrl, servicekey);
+                using (Stream data = client.OpenRead(url))
                 {
-
-                    string searchQuery = txtSearch.Text.Trim();
-
-                    // API 요청 생성
-                    string requestUrl = $"{targetUrl}?ttbkey={servicekey}&Query={searchQuery}&QueryType=Keyword&MaxResults=10&start=1&SearchTarget=Book";
-
-                    // API 호출 및 응답 받기
-                    HttpResponseMessage response = await client.GetAsync(requestUrl);
-
-                    if (response.IsSuccessStatusCode)
+                    using (StreamReader reader = new StreamReader(data))
                     {
-                        string jsonResponse = await response.Content.ReadAsStringAsync();
-                        try
-                        {
-                            JObject data = JObject.Parse(jsonResponse);
+                        string s = reader.ReadToEnd();
+                        result = s;
 
-                            // ListView 초기화
-                            searchLv.Items.Clear();
-
-                            // 도서 정보 추출 및 표시
-                            foreach (var item in data["item"])
-                            {
-                                string title = item["title"].ToString();
-                                string author = item["author"].ToString();
-
-                                ListViewItem listViewItem = new ListViewItem(title);
-                                listViewItem.SubItems.Add(author);
-                                searchLv.Items.Add(listViewItem);
-                            }
-                        }
-                        catch (JsonReaderException ex)
-                        {
-                            // JSON 파싱 오류 처리
-                            MessageBox.Show($"JSON 파싱 오류: {ex.Message}");
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("API 호출 실패.");
+                        reader.Close();
+                        data.Close();
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"오류 발생: {ex.Message}");
+                MessageBox.Show(ex.Message);
+            }
+            return result;
+        }
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string result = getResults();
+
+            XmlDocument xml = new XmlDocument();
+            xml.LoadXml(result);
+            XmlNodeList list = xml.GetElementsByTagName("Keyword");
+
+            searchLv.Items.Clear();
+            int idx = 0;
+            foreach (XmlNode book in list)
+            {
+                ListViewItem item = new ListViewItem((idx++).ToString());
+                item.SubItems.Add(book["title"].InnerText);
+                item.SubItems.Add(book["author"].InnerText);
+                searchLv.Items.Add(item);
             }
         }
 
-        private async void txtSearch_TextChanged(object sender, EventArgs e)
+        private void txtSearch_TextChanged(object sender, EventArgs e)
         {
 
         }
