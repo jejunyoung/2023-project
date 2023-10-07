@@ -28,15 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ColumnHeader columnHeader1;
-            ColumnHeader title;
-            ColumnHeader author;
-            ColumnHeader BookYear;
-            ColumnHeader BookNum;
-            ColumnHeader BookPublisher;
-            ColumnHeader columnHeader2;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(search));
-            ListViewItem listViewItem1 = new ListViewItem("");
+            ListViewItem listViewItem3 = new ListViewItem("");
             pictureBox3 = new PictureBox();
             label1 = new Label();
             txtSearch = new TextBox();
@@ -46,60 +39,16 @@
             pictureBox5 = new PictureBox();
             pictureBox6 = new PictureBox();
             searchLv = new ListView();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             columnHeader1 = new ColumnHeader();
-            title = new ColumnHeader();
-            author = new ColumnHeader();
-            BookYear = new ColumnHeader();
-            BookNum = new ColumnHeader();
-            BookPublisher = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
+            columnHeader4 = new ColumnHeader();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
-            // 
-            // columnHeader1
-            // 
-            columnHeader1.Text = "";
-            columnHeader1.Width = 1;
-            // 
-            // title
-            // 
-            title.Text = "title";
-            title.TextAlign = HorizontalAlignment.Center;
-            title.Width = 130;
-            // 
-            // author
-            // 
-            author.Text = "author";
-            author.TextAlign = HorizontalAlignment.Center;
-            author.Width = 130;
-            // 
-            // BookYear
-            // 
-            BookYear.Text = "발행연도";
-            BookYear.TextAlign = HorizontalAlignment.Center;
-            BookYear.Width = 130;
-            // 
-            // BookNum
-            // 
-            BookNum.Text = "청구 기호";
-            BookNum.TextAlign = HorizontalAlignment.Center;
-            BookNum.Width = 130;
-            // 
-            // BookPublisher
-            // 
-            BookPublisher.Text = "발행자";
-            BookPublisher.TextAlign = HorizontalAlignment.Center;
-            BookPublisher.Width = 130;
-            // 
-            // columnHeader2
-            // 
-            columnHeader2.Text = "";
-            columnHeader2.TextAlign = HorizontalAlignment.Right;
-            columnHeader2.Width = 0;
             // 
             // pictureBox3
             // 
@@ -188,8 +137,11 @@
             // 
             // searchLv
             // 
-            searchLv.Columns.AddRange(new ColumnHeader[] { columnHeader1, title, author, BookYear, BookNum, BookPublisher, columnHeader2 });
-            searchLv.Items.AddRange(new ListViewItem[] { listViewItem1 });
+            searchLv.BorderStyle = BorderStyle.None;
+            searchLv.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
+            searchLv.Font = new Font("강원교육현옥샘 Medium", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            searchLv.GridLines = true;
+            searchLv.Items.AddRange(new ListViewItem[] { listViewItem3 });
             searchLv.Location = new Point(50, 162);
             searchLv.Name = "searchLv";
             searchLv.Size = new Size(650, 677);
@@ -197,6 +149,26 @@
             searchLv.UseCompatibleStateImageBehavior = false;
             searchLv.View = View.Details;
             searchLv.SelectedIndexChanged += searchLv_SelectedIndexChanged_1;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "제목";
+            columnHeader1.Width = 270;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "작가";
+            columnHeader2.Width = 120;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "출판사";
+            columnHeader3.Width = 160;
+            // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "출간일";
+            columnHeader4.Width = 101;
             // 
             // flowLayoutPanel1
             // 
@@ -245,13 +217,10 @@
         private PictureBox pictureBox5;
         private PictureBox pictureBox6;
         private ListView searchLv;
-        private ColumnHeader author;
-        private ColumnHeader BookPublisher;
-        private ColumnHeader BookYear;
-        private ColumnHeader BookNum;
-        private ColumnHeader title;
+        private FlowLayoutPanel flowLayoutPanel1;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
     }
 }
