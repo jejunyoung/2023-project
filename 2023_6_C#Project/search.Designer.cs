@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(search));
-            ListViewItem listViewItem3 = new ListViewItem("");
-            pictureBox3 = new PictureBox();
+            ListViewItem listViewItem1 = new ListViewItem("");
+            mainLogo = new PictureBox();
             label1 = new Label();
             txtSearch = new TextBox();
             btnSearch = new Button();
@@ -44,21 +44,22 @@
             columnHeader3 = new ColumnHeader();
             columnHeader4 = new ColumnHeader();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)mainLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox3
+            // mainLogo
             // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(146, -33);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(182, 163);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 16;
-            pictureBox3.TabStop = false;
+            mainLogo.Image = (Image)resources.GetObject("mainLogo.Image");
+            mainLogo.Location = new Point(146, -33);
+            mainLogo.Name = "mainLogo";
+            mainLogo.Size = new Size(182, 163);
+            mainLogo.SizeMode = PictureBoxSizeMode.Zoom;
+            mainLogo.TabIndex = 16;
+            mainLogo.TabStop = false;
+            mainLogo.Click += mainLogo_Click;
             // 
             // label1
             // 
@@ -141,7 +142,7 @@
             searchLv.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
             searchLv.Font = new Font("강원교육현옥샘 Medium", 15F, FontStyle.Bold, GraphicsUnit.Point);
             searchLv.GridLines = true;
-            searchLv.Items.AddRange(new ListViewItem[] { listViewItem3 });
+            searchLv.Items.AddRange(new ListViewItem[] { listViewItem1 });
             searchLv.Location = new Point(50, 162);
             searchLv.Name = "searchLv";
             searchLv.Size = new Size(650, 677);
@@ -193,12 +194,12 @@
             Controls.Add(listView1);
             Controls.Add(btnSearch);
             Controls.Add(label1);
-            Controls.Add(pictureBox3);
+            Controls.Add(mainLogo);
             Name = "search";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "search";
             Load += search_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)mainLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
@@ -208,7 +209,7 @@
 
         #endregion
 
-        private PictureBox pictureBox3;
+        private PictureBox mainLogo;
         private Label label1;
         private TextBox txtSearch;
         private Button btnSearch;

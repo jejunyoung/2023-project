@@ -60,7 +60,7 @@ namespace _2023_6_C_Project
                     Main form = new Main(); // Main 폼 인스턴스 생성
                     this.Hide();  // 현재 폼 숨기기
                     form.ShowDialog();  // Main 폼 열기
-                    this.Show();  // 현재 폼 다시 표시하기(Main 품을 닫았을 경우)
+                    Application.Exit(); // 프로그램 종료
                 }
                 // 로그인 실패 메시지 표시
                 else

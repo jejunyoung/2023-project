@@ -3,6 +3,7 @@ using System.IO;
 using System.Xml;
 using System.Net.Http;
 using System.Xml.Linq;
+using System.Text.RegularExpressions;
 
 namespace _2023_6_C_Project
 {
@@ -111,6 +112,14 @@ namespace _2023_6_C_Project
         private void searchLv_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void mainLogo_Click(object sender, EventArgs e)
+        {
+            Main form = new Main();// search 폼 인스턴스 생성
+            this.Close();  // 현재 폼 숨기기
+            form.ShowDialog();  // Main 폼 열기
+            Application.Exit(); // 프로그램 종료
         }
     }
 }

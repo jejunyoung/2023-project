@@ -27,9 +27,8 @@ namespace _2023_6_C_Project
         private void search_Click(object sender, EventArgs e)
         {
             search form = new search();// search 폼 인스턴스 생성
-            this.Hide();  // 현재 폼 숨기기
-            form.ShowDialog();  // Main 폼 열기
-            this.Show();  // 현재 폼 다시 표시하기(Main 품을 닫았을 경우)
+            this.Close();  // 현재 폼 숨기기
+            form.ShowDialog();  // search 폼 열기
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -39,7 +38,17 @@ namespace _2023_6_C_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

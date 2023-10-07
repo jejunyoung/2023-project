@@ -67,6 +67,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(507, 46);
             textBox1.TabIndex = 5;
+            textBox1.Click += textBox1_Click;
             // 
             // button1
             // 
