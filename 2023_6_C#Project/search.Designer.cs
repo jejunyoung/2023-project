@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(search));
-            ListViewItem listViewItem1 = new ListViewItem("");
             mainLogo = new PictureBox();
             label1 = new Label();
             txtSearch = new TextBox();
@@ -38,12 +38,8 @@
             pictureBox4 = new PictureBox();
             pictureBox5 = new PictureBox();
             pictureBox6 = new PictureBox();
-            searchLv = new ListView();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
-            columnHeader3 = new ColumnHeader();
-            columnHeader4 = new ColumnHeader();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            imageList1 = new ImageList(components);
             ((System.ComponentModel.ISupportInitialize)mainLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -136,41 +132,6 @@
             pictureBox6.TabIndex = 23;
             pictureBox6.TabStop = false;
             // 
-            // searchLv
-            // 
-            searchLv.BorderStyle = BorderStyle.None;
-            searchLv.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
-            searchLv.Font = new Font("강원교육현옥샘 Medium", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            searchLv.GridLines = true;
-            searchLv.Items.AddRange(new ListViewItem[] { listViewItem1 });
-            searchLv.Location = new Point(50, 162);
-            searchLv.Name = "searchLv";
-            searchLv.Size = new Size(650, 677);
-            searchLv.TabIndex = 24;
-            searchLv.UseCompatibleStateImageBehavior = false;
-            searchLv.View = View.Details;
-            searchLv.SelectedIndexChanged += searchLv_SelectedIndexChanged_1;
-            // 
-            // columnHeader1
-            // 
-            columnHeader1.Text = "제목";
-            columnHeader1.Width = 270;
-            // 
-            // columnHeader2
-            // 
-            columnHeader2.Text = "작가";
-            columnHeader2.Width = 120;
-            // 
-            // columnHeader3
-            // 
-            columnHeader3.Text = "출판사";
-            columnHeader3.Width = 160;
-            // 
-            // columnHeader4
-            // 
-            columnHeader4.Text = "출간일";
-            columnHeader4.Width = 101;
-            // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.BackgroundImageLayout = ImageLayout.None;
@@ -179,6 +140,12 @@
             flowLayoutPanel1.Size = new Size(200, 10);
             flowLayoutPanel1.TabIndex = 25;
             // 
+            // imageList1
+            // 
+            imageList1.ColorDepth = ColorDepth.Depth8Bit;
+            imageList1.ImageSize = new Size(16, 16);
+            imageList1.TransparentColor = Color.Transparent;
+            // 
             // search
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -186,7 +153,6 @@
             BackColor = Color.White;
             ClientSize = new Size(734, 961);
             Controls.Add(txtSearch);
-            Controls.Add(searchLv);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox6);
@@ -217,11 +183,7 @@
         private PictureBox pictureBox4;
         private PictureBox pictureBox5;
         private PictureBox pictureBox6;
-        private ListView searchLv;
         private FlowLayoutPanel flowLayoutPanel1;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
-        private ColumnHeader columnHeader3;
-        private ColumnHeader columnHeader4;
+        private ImageList imageList1;
     }
 }
