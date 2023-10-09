@@ -41,14 +41,15 @@ namespace _2023_6_C_Project
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void textBox1_Click(object sender, EventArgs e)
         {
+        }
 
+        private void textBox1_Click_1(object sender, EventArgs e)
+        {
+            search form = new search();// search 폼 인스턴스 생성
+            this.Close();  // 현재 폼 숨기기
+            form.ShowDialog();  // search 폼 열기
         }
     }
 }
