@@ -17,7 +17,7 @@ namespace _2023_6_C_Project
         //정규표현식
         private string idPattern = @"^[a-zA-Z0-9!@#$%^&*()-_+=<>?]{1,12}$";//영어 숫자 특수문자 가능 길이 1~12
         private string passwordPattern = @"^[a-zA-Z0-9!@#$%^&*()-_+=<>?]{1,12}$"; //영어 숫자 특수문자 가능 길이 1~12
-        private string namePattern = @"^[a-zA-Z가-힣]{2,6}$"; //한국어만 가능 길이 3~6
+        private string namePattern = @" ^ [a-zA-Z]{2,6}$"; //한국어만 가능 길이 3~6
         public Join()
         {
             InitializeComponent();
@@ -126,10 +126,10 @@ namespace _2023_6_C_Project
 
         private void txtName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !Regex.IsMatch(txtName.Text + e.KeyChar, namePattern))
+            /*if (!char.IsControl(e.KeyChar) && !Regex.IsMatch(txtName.Text + e.KeyChar, namePattern))
             {
                 e.Handled = true; // 입력된 문자를 처리하지 않음
-            }
+            }*/
         }
     }
 }

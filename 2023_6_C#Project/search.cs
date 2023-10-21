@@ -13,6 +13,8 @@ namespace _2023_6_C_Project //test
         private int currentPage = 1; // 현재 페이지 번호를 나타내는 변수
         private int itemsPerPage = 4; // 페이지당 표시할 항목 수를 나타내는 변수 (그룹 박스 개수)
 
+        public string isbn13 { get; private set; }
+
         public search()
         {
             InitializeComponent(); // Windows Forms 애플리케이션의 초기화를 수행
@@ -48,7 +50,7 @@ namespace _2023_6_C_Project //test
             }
         }
 
-        private void DisplaySearchResults(string result, int currentPage)
+        public void DisplaySearchResults(string result, int currentPage)
         {
             XmlDocument xml = new XmlDocument();
             xml.LoadXml(result); // XML 형식의 검색 결과를 XmlDocument로 로드
@@ -83,6 +85,7 @@ namespace _2023_6_C_Project //test
                 XmlNode publisherNode = itemNode.SelectSingleNode("ns:publisher", nsManager); // 출판사 정보 가져오기
                 XmlNode pubdateNode = itemNode.SelectSingleNode("ns:pubDate", nsManager); // 출간일 정보 가져오기
                 XmlNode coverNode = itemNode.SelectSingleNode("ns:cover", nsManager); // 표지 이미지 URL 정보 가져오기
+                XmlNode isbn13Node = itemNode.SelectSingleNode("ns:isbn13", nsManager); // isbn(국제 표준 도서 번호)정보 가져오기
 
                 if (titleNode != null && authorNode != null && publisherNode != null && pubdateNode != null)
                 {
@@ -92,6 +95,7 @@ namespace _2023_6_C_Project //test
                     string publisher = publisherNode.InnerText;
                     string pubdateStr = pubdateNode.InnerText;
                     string cover = (coverNode != null) ? coverNode.InnerText : string.Empty; // 표지 이미지 URL
+                    string isbn13 = isbn13Node.InnerText;
 
                     DateTime pubDate;
                     string formattedPubDate = "";
@@ -106,6 +110,10 @@ namespace _2023_6_C_Project //test
                     groupBox.Text = "";
                     groupBox.Location = new Point(50, groupBoxTop);
                     groupBox.Size = new Size(650, 150);
+                    groupBox.Tag = isbn13; // ISBN 정보를 그룹 박스의 Tag 속성에 저장
+                    // Click 이벤트 핸들러를 등록
+                    groupBox.Click += groupBox_Click;
+                    // 그룹 박스를 폼에 추가
                     this.Controls.Add(groupBox);
 
                     // 이미지 박스 추가
@@ -113,26 +121,36 @@ namespace _2023_6_C_Project //test
                     pictureBox.Location = new Point(20, 20);
                     pictureBox.Size = new Size(100, 120);
                     groupBox.Controls.Add(pictureBox);
+                    // Click 이벤트 핸들러를 등록
+                    pictureBox.Click += groupBox_Click;
 
                     // 라벨 추가 (제목)
                     Label titleLabel = new Label();
                     titleLabel.Location = new Point(150, 20);
                     groupBox.Controls.Add(titleLabel);
+                    // Click 이벤트 핸들러를 등록
+                    titleLabel.Click += groupBox_Click;
 
                     // 라벨 추가 (저자)
                     Label authorLabel = new Label();
                     authorLabel.Location = new Point(150, 40);
                     groupBox.Controls.Add(authorLabel);
+                    // Click 이벤트 핸들러를 등록
+                    authorLabel.Click += groupBox_Click;
 
                     // 라벨 추가 (출판사)
                     Label publisherLabel = new Label();
                     publisherLabel.Location = new Point(150, 60);
                     groupBox.Controls.Add(publisherLabel);
+                    // Click 이벤트 핸들러를 등록
+                    publisherLabel.Click += groupBox_Click;
 
                     // 라벨 추가 (출간일)
                     Label pubdateLabel = new Label();
                     pubdateLabel.Location = new Point(150, 80);
                     groupBox.Controls.Add(pubdateLabel);
+                    // Click 이벤트 핸들러를 등록
+                    pubdateLabel.Click += groupBox_Click;
 
                     titleLabel.Text = "제목: " + title;
                     authorLabel.Text = "저자: " + author;
@@ -180,6 +198,48 @@ namespace _2023_6_C_Project //test
                 }
             };
             this.Controls.Add(nextPageButton);
+        }
+        public void groupBox_Click(object sender, EventArgs e)
+        {
+            // 클릭한 컨트롤을 확인
+            Control clickedControl = sender as Control;
+
+            // 클릭한 그룹 박스, 이미지 박스, 라벨을 가져옴
+            Control parentControl = GetParentGroupBox(clickedControl);
+
+            // 클릭한 그룹 박스에서 ISBN 정보 가져오기
+            if (parentControl is GroupBox)
+            {
+                string isbnInfo = GetIsbnInfoFromGroupBox(parentControl as GroupBox);
+
+                // DetailedSearch 폼을 생성하고 ISBN 정보를 전달
+                DetailedSearch form = new DetailedSearch(isbnInfo);
+                this.Hide();
+                form.ShowDialog();
+            }
+        }
+
+        // 클릭한 컨트롤의 부모 그룹 박스를 찾는 메서드
+        private Control GetParentGroupBox(Control control)
+        {
+            while (control != null && !(control is GroupBox))
+            {
+                control = control.Parent;
+            }
+            return control;
+        }
+
+        // 클릭한 그룹 박스에서 ISBN 정보를 가져오는 메서드
+        private string GetIsbnInfoFromGroupBox(GroupBox groupBox)
+        {
+            if (groupBox != null && groupBox.Tag != null)
+            {
+                // 그룹 박스의 Tag 속성에서 ISBN 정보를 가져옵니다.
+                string isbnInfo = groupBox.Tag.ToString(); // Tag는 object 형식이므로 ToString()으로 변환
+                return isbnInfo;
+            }
+
+            return "ISBN 정보를 찾을 수 없습니다.";
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
