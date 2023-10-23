@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Xml;
+using MySqlX.XDevAPI.Common;
 
 namespace _2023_6_C_Project //test
 {
@@ -18,6 +19,7 @@ namespace _2023_6_C_Project //test
         public search()
         {
             InitializeComponent(); // Windows Forms 애플리케이션의 초기화를 수행
+
         }
 
         private async void btnSearch_Click(object sender, EventArgs e)
@@ -87,7 +89,7 @@ namespace _2023_6_C_Project //test
                 XmlNode coverNode = itemNode.SelectSingleNode("ns:cover", nsManager); // 표지 이미지 URL 정보 가져오기
                 XmlNode isbn13Node = itemNode.SelectSingleNode("ns:isbn13", nsManager); // isbn(국제 표준 도서 번호)정보 가져오기
 
-                if (titleNode != null && authorNode != null && publisherNode != null && pubdateNode != null)
+                if (titleNode != null && authorNode != null && publisherNode != null && pubdateNode != null && isbn13Node !=null)
                 {
                     // 각 항목의 정보 추출
                     string title = titleNode.InnerText;
@@ -241,25 +243,6 @@ namespace _2023_6_C_Project //test
 
             return "ISBN 정보를 찾을 수 없습니다.";
         }
-
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-            // 이벤트 핸들러: 검색어 텍스트 상자의 텍스트가 변경될 때 호출
-            // (이 코드에서는 사용되지 않음)
-        }
-
-        private void search_Load(object sender, EventArgs e)
-        {
-            // 이벤트 핸들러: 폼 로드 시 호출
-            // (이 코드에서는 사용되지 않음)
-        }
-
-        private void searchLv_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            // 이벤트 핸들러: 리스트 뷰의 선택 항목이 변경될 때 호출
-            // (이 코드에서는 사용되지 않음)
-        }
-
         private void mainLogo_Click(object sender, EventArgs e)
         {
             Main form = new Main();
@@ -267,5 +250,18 @@ namespace _2023_6_C_Project //test
             form.ShowDialog();
             Application.Exit();
         }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void search_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void searchLv_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+        }        
     }
 }
