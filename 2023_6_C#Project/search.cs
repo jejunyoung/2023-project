@@ -13,13 +13,15 @@ namespace _2023_6_C_Project //test
 
         private int currentPage = 1; // 현재 페이지 번호를 나타내는 변수
         private int itemsPerPage = 4; // 페이지당 표시할 항목 수를 나타내는 변수 (그룹 박스 개수)
+        private string userNumber;
+        private string userNum;
 
         public string isbn13 { get; private set; }
 
         public search()
         {
+            userNum = Program.UserNum; // UserNum을 userNum으로 설정
             InitializeComponent(); // Windows Forms 애플리케이션의 초기화를 수행
-
         }
 
         private async void btnSearch_Click(object sender, EventArgs e)
@@ -213,12 +215,14 @@ namespace _2023_6_C_Project //test
             if (parentControl is GroupBox)
             {
                 string isbnInfo = GetIsbnInfoFromGroupBox(parentControl as GroupBox);
+                MessageBox.Show(isbnInfo);
 
-                // DetailedSearch 폼을 생성하고 ISBN 정보를 전달
-                DetailedSearch form = new DetailedSearch(isbnInfo);
+                DSearch form = new DSearch(isbnInfo); // userNumber를 전달
                 this.Hide();
                 form.ShowDialog();
+
             }
+
         }
 
         // 클릭한 컨트롤의 부모 그룹 박스를 찾는 메서드

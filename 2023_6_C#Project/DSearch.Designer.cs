@@ -1,6 +1,6 @@
 ﻿namespace _2023_6_C_Project
 {
-    partial class DetailedSearch
+    partial class DSearch
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetailedSearch));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DSearch));
             mainLogo = new PictureBox();
             label1 = new Label();
             txtSearch = new TextBox();
@@ -46,11 +46,20 @@
             labelbestRank = new Label();
             labelcustomerReviewRank = new Label();
             txtDescription = new TextBox();
+            btnSave = new Label();
+            picReadDone = new PictureBox();
+            picReading = new PictureBox();
+            picReadLike = new PictureBox();
+            groupBox1 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)mainLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)searchLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picReadDone).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picReading).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picReadLike).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // mainLogo
@@ -199,7 +208,7 @@
             // labelbestRank
             // 
             labelbestRank.AutoSize = true;
-            labelbestRank.Location = new Point(585, 765);
+            labelbestRank.Location = new Point(604, 733);
             labelbestRank.Name = "labelbestRank";
             labelbestRank.Size = new Size(95, 15);
             labelbestRank.TabIndex = 33;
@@ -209,7 +218,7 @@
             // 
             labelcustomerReviewRank.AutoSize = true;
             labelcustomerReviewRank.Font = new Font("강원교육현옥샘 Medium", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
-            labelcustomerReviewRank.Location = new Point(58, 765);
+            labelcustomerReviewRank.Location = new Point(49, 718);
             labelcustomerReviewRank.Name = "labelcustomerReviewRank";
             labelcustomerReviewRank.Size = new Size(46, 31);
             labelcustomerReviewRank.TabIndex = 34;
@@ -228,12 +237,66 @@
             txtDescription.TabIndex = 35;
             txtDescription.Text = "설명";
             // 
-            // DetailedSearch
+            // btnSave
+            // 
+            btnSave.AutoSize = true;
+            btnSave.Font = new Font("강원교육현옥샘 Medium", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSave.Location = new Point(563, 799);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(79, 31);
+            btnSave.TabIndex = 36;
+            btnSave.Text = "저장하기";
+            btnSave.Click += btnSave_Click;
+            // 
+            // picReadDone
+            // 
+            picReadDone.Image = (Image)resources.GetObject("picReadDone.Image");
+            picReadDone.Location = new Point(23, 29);
+            picReadDone.Name = "picReadDone";
+            picReadDone.Size = new Size(160, 200);
+            picReadDone.TabIndex = 0;
+            picReadDone.TabStop = false;
+            picReadDone.Click += picReadDone_Click;
+            // 
+            // picReading
+            // 
+            picReading.Image = (Image)resources.GetObject("picReading.Image");
+            picReading.Location = new Point(221, 29);
+            picReading.Name = "picReading";
+            picReading.Size = new Size(160, 200);
+            picReading.TabIndex = 1;
+            picReading.TabStop = false;
+            // 
+            // picReadLike
+            // 
+            picReadLike.Image = (Image)resources.GetObject("picReadLike.Image");
+            picReadLike.Location = new Point(418, 29);
+            picReadLike.Name = "picReadLike";
+            picReadLike.Size = new Size(160, 200);
+            picReadLike.TabIndex = 2;
+            picReadLike.TabStop = false;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(picReadLike);
+            groupBox1.Controls.Add(picReading);
+            groupBox1.Controls.Add(picReadDone);
+            groupBox1.ForeColor = SystemColors.ControlText;
+            groupBox1.Location = new Point(70, 600);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(600, 250);
+            groupBox1.TabIndex = 37;
+            groupBox1.TabStop = false;
+            groupBox1.Visible = false;
+            // 
+            // DSearch
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(734, 961);
+            Controls.Add(groupBox1);
+            Controls.Add(btnSave);
             Controls.Add(txtDescription);
             Controls.Add(labelcustomerReviewRank);
             Controls.Add(labelbestRank);
@@ -251,7 +314,7 @@
             Controls.Add(txtSearch);
             Controls.Add(label1);
             Controls.Add(mainLogo);
-            Name = "DetailedSearch";
+            Name = "DSearch";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DetailedSearch";
             Load += DetailedSearch_Load;
@@ -260,6 +323,10 @@
             ((System.ComponentModel.ISupportInitialize)searchLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picReadDone).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picReading).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picReadLike).EndInit();
+            groupBox1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -283,5 +350,10 @@
         private Label labelbestRank;
         private Label labelcustomerReviewRank;
         private TextBox txtDescription;
+        private Label btnSave;
+        private PictureBox picReadDone;
+        private PictureBox picReading;
+        private PictureBox picReadLike;
+        private GroupBox groupBox1;
     }
 }

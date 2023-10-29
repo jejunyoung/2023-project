@@ -1,3 +1,6 @@
+using System;
+using System.Windows.Forms;
+
 namespace _2023_6_C_Project
 {
     internal static class Program
@@ -5,6 +8,9 @@ namespace _2023_6_C_Project
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
+        /// 
+        public static string UserNum { get; set; }
+
         [STAThread]
         static void Main()
         {

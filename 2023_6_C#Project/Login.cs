@@ -24,53 +24,52 @@ namespace _2023_6_C_Project
             InitializeComponent();
         }
 
+        public class UserManager
+        {
+            public static int UserNum { get; set; }
+        }
+
+
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
             try
             {
-                //MySQL 데이터베이스 연결 설정
+                // MySQL 데이터베이스 연결 설정
                 MySqlConnection connection = new MySqlConnection("Server = mysql6.c3ts2gxxyaaf.ap-northeast-2.rds.amazonaws.com;Database=mybook;Uid=mydb;Pwd=12345678;");
                 connection.Open();
 
-                // 로그인 상태를 나타내는 변수 초기화
-                int login_status = 0;
-
                 // 사용자가 입력한 아이디와 비밀번호 가져오기
-                String loginid = txtId.Text;
-                String loginpwd = txtPwd.Text;
+                string loginid = txtId.Text;
+                string loginpwd = txtPwd.Text;
 
-                // 테이블연결 퀴리
-                String selectQuery = "SELECT * FROM usertbl";
-                MySqlCommand Selectcommand = new MySqlCommand(selectQuery, connection);
-                MySqlDataReader userAccount = Selectcommand.ExecuteReader();
-
-                // 사용자 테이블의 각 레코드를 반복하면서 로그인 검사
-                while (userAccount.Read())
-                {
-                    if (loginid == (string)userAccount["userId"] && loginpwd == (string)userAccount["userPw"])
-                    {
-                        login_status = 1; // 로그인 성공 상태 플래그 설정
-                    }
-                }
-                connection.Close(); // 데이터베이스 연결 닫기
+                // 테이블 연결 쿼리
+                string selectQuery = "SELECT userId, userNum FROM usertbl WHERE userId = @loginid AND userPw = @loginpwd";
+                MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection);
+                selectCommand.Parameters.AddWithValue("@loginid", loginid);
+                selectCommand.Parameters.AddWithValue("@loginpwd", loginpwd);
+                MySqlDataReader userAccount = selectCommand.ExecuteReader();
 
                 // 로그인 성공한 경우
-                if (login_status == 1)
+                if (userAccount.Read())
                 {
-                    Main form = new Main(); // Main 폼 인스턴스 생성
-                    this.Hide();  // 현재 폼 숨기기
-                    form.ShowDialog();  // Main 폼 열기
-                    Application.Exit(); // 프로그램 종료
+                    Program.UserNum = userAccount["userNum"].ToString(); // userNum 값을 Program의 UserNum 변수에 저장
+
+
+                    Main form = new Main();
+                    Hide();
+                    form.ShowDialog();
+                    Application.Exit();
                 }
                 // 로그인 실패 메시지 표시
                 else
                 {
                     MessageBox.Show("로그인 실패");
                 }
+                connection.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message); // 예외 발생 시 메시지 박스로 예외 내용 표시
+                MessageBox.Show(ex.Message);
             }
         }
 
