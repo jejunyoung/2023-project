@@ -3,6 +3,9 @@ using System.Xml;
 using System.Net.Http;
 using System;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using MySqlX.XDevAPI.Common;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace _2023_6_C_Project
 {
@@ -77,9 +80,10 @@ namespace _2023_6_C_Project
                 XmlNode coverNode = itemNode.SelectSingleNode("ns:cover", nsManager);
                 XmlNode descriptionNode = itemNode.SelectSingleNode("ns:description", nsManager);
                 XmlNode customerReviewRankNode = itemNode.SelectSingleNode("ns:customerReviewRank", nsManager);
+                XmlNode isbn13Node = itemNode.SelectSingleNode("ns:isbn13", nsManager); // isbn(국제 표준 도서 번호)정보 가져오기
 
                 if (titleNode != null && authorNode != null && publisherNode != null &&
-                    pubdateNode != null && descriptionNode != null && customerReviewRankNode != null)
+                    pubdateNode != null && descriptionNode != null && customerReviewRankNode != null && isbn13Node != null)
                 {
                     string title = titleNode.InnerText;
                     string author = authorNode.InnerText;
@@ -88,6 +92,7 @@ namespace _2023_6_C_Project
                     string cover = (coverNode != null) ? coverNode.InnerText : string.Empty;
                     string description = System.Text.RegularExpressions.Regex.Replace(descriptionNode.InnerText, "<.*?>", string.Empty);
                     string customerReviewRank = customerReviewRankNode.InnerText;
+                    string isbn = isbn13Node.InnerText;
 
                     titleLabel.Text = title;
                     authorLabel.Text = "저자: " + author;
@@ -96,9 +101,42 @@ namespace _2023_6_C_Project
                     pictureBox.Load(cover);
                     txtDescription.Text = description;
                     labelcustomerReviewRank.Text = customerReviewRank;
+
+                    InsertBookData(isbn, title, cover);
                 }
             }
         }
+
+
+        private void InsertBookData(string isbn, string title, string cover)
+        {
+            string connectionString = "Server=mysql6.c3ts2gxxyaaf.ap-northeast-2.rds.amazonaws.com;Database=mybook;Uid=mydb;Pwd=12345678;";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // 이미 저장된 책인지 확인
+                string checkQuery = "SELECT bookID FROM booktbl WHERE bookID = @isbn";
+                MySqlCommand checkCommand = new MySqlCommand(checkQuery, connection);
+                checkCommand.Parameters.AddWithValue("@isbn", isbn);
+                object result = checkCommand.ExecuteScalar();
+
+                if (result == null)
+                {
+                    // 이미 저장된 책이 없는 경우에만 저장
+                    string insertQuery = "INSERT INTO booktbl (bookID, bookName, bookCover) VALUES (@isbn, @title, @cover)";
+                    MySqlCommand insertCommand = new MySqlCommand(insertQuery, connection);
+                    insertCommand.Parameters.AddWithValue("@isbn", isbn);
+                    insertCommand.Parameters.AddWithValue("@title", title);
+                    insertCommand.Parameters.AddWithValue("@cover", cover);
+                    insertCommand.ExecuteNonQuery();
+                }
+
+                connection.Close();
+            }
+        }
+
 
         private void mainLogo_Click(object sender, EventArgs e)
         {
@@ -127,19 +165,20 @@ namespace _2023_6_C_Project
 
             try
             {
-                string checkQuery = "SELECT bookID FROM readDoneTbl WHERE bookID = @bookID AND userNum = @userNum";
+                string checkQuery = "SELECT COUNT(*) FROM readDoneTbl WHERE bookID = @bookID AND userNum = @userNum";
                 MySqlCommand checkCommand = new MySqlCommand(checkQuery, connection);
                 checkCommand.Parameters.AddWithValue("@bookID", isbnInfo);
                 checkCommand.Parameters.AddWithValue("@userNum", userNum);
 
-                object result = checkCommand.ExecuteScalar();
+                int rowCount = Convert.ToInt32(checkCommand.ExecuteScalar());
 
-                if (result != null)
+                if (rowCount > 0)
                 {
-                    MessageBox.Show("이미 저장된 책 입니다");
+                    MessageBox.Show("이미 저장된 책입니다");
                 }
                 else
                 {
+                    // 중복이 아닌 경우에만 저장
                     string insertQuery = "INSERT INTO readDoneTbl (bookID, userNum) VALUES (@bookID, @userNum)";
                     MySqlCommand insertCommand = new MySqlCommand(insertQuery, connection);
                     insertCommand.Parameters.AddWithValue("@bookID", isbnInfo);
@@ -163,6 +202,13 @@ namespace _2023_6_C_Project
             {
                 MessageBox.Show("데이터베이스 오류: " + ex.Message);
             }
+        }
+
+        private void readDonePic_Click(object sender, EventArgs e)
+        {
+            readDone form = new readDone();
+            this.Hide();
+            form.ShowDialog();
         }
     }
 }

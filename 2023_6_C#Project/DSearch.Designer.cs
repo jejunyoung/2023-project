@@ -34,7 +34,7 @@
             txtSearch = new TextBox();
             btnSearch = new Button();
             listView1 = new ListView();
-            pictureBox4 = new PictureBox();
+            readDonePic = new PictureBox();
             searchLogo = new PictureBox();
             pictureBox6 = new PictureBox();
             pictureBox = new PictureBox();
@@ -52,7 +52,7 @@
             picReadLike = new PictureBox();
             groupBox1 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)mainLogo).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)readDonePic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)searchLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
@@ -114,16 +114,17 @@
             listView1.TabIndex = 21;
             listView1.UseCompatibleStateImageBehavior = false;
             // 
-            // pictureBox4
+            // readDonePic
             // 
-            pictureBox4.BackColor = SystemColors.ButtonFace;
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(70, 845);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(174, 131);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 22;
-            pictureBox4.TabStop = false;
+            readDonePic.BackColor = SystemColors.ButtonFace;
+            readDonePic.Image = (Image)resources.GetObject("readDonePic.Image");
+            readDonePic.Location = new Point(70, 845);
+            readDonePic.Name = "readDonePic";
+            readDonePic.Size = new Size(174, 131);
+            readDonePic.SizeMode = PictureBoxSizeMode.Zoom;
+            readDonePic.TabIndex = 22;
+            readDonePic.TabStop = false;
+            readDonePic.Click += readDonePic_Click;
             // 
             // searchLogo
             // 
@@ -308,7 +309,7 @@
             Controls.Add(pictureBox);
             Controls.Add(pictureBox6);
             Controls.Add(searchLogo);
-            Controls.Add(pictureBox4);
+            Controls.Add(readDonePic);
             Controls.Add(listView1);
             Controls.Add(btnSearch);
             Controls.Add(txtSearch);
@@ -319,7 +320,7 @@
             Text = "DetailedSearch";
             Load += DetailedSearch_Load;
             ((System.ComponentModel.ISupportInitialize)mainLogo).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)readDonePic).EndInit();
             ((System.ComponentModel.ISupportInitialize)searchLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
@@ -338,7 +339,7 @@
         private TextBox txtSearch;
         private Button btnSearch;
         private ListView listView1;
-        private PictureBox pictureBox4;
+        private PictureBox readDonePic;
         private PictureBox searchLogo;
         private PictureBox pictureBox6;
         private PictureBox pictureBox;
