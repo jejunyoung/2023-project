@@ -38,6 +38,10 @@
             searchLogo = new PictureBox();
             pictureBox6 = new PictureBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            flowLayoutPanel2 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)mainLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)searchLogo).BeginInit();
@@ -135,12 +139,56 @@
             flowLayoutPanel1.Size = new Size(200, 10);
             flowLayoutPanel1.TabIndex = 29;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("맑은 고딕", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(88, 176);
+            label2.Name = "label2";
+            label2.Size = new Size(132, 30);
+            label2.TabIndex = 30;
+            label2.Text = "다 읽었어요!";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(326, 181);
+            label3.Name = "label3";
+            label3.Size = new Size(104, 25);
+            label3.TabIndex = 31;
+            label3.Text = "읽는 중~~";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(542, 181);
+            label4.Name = "label4";
+            label4.Size = new Size(128, 25);
+            label4.TabIndex = 32;
+            label4.Text = "읽고 싶어요~";
+            // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.BackColor = SystemColors.GradientInactiveCaption;
+            flowLayoutPanel2.BackgroundImageLayout = ImageLayout.None;
+            flowLayoutPanel2.BorderStyle = BorderStyle.FixedSingle;
+            flowLayoutPanel2.Location = new Point(88, 206);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(132, 5);
+            flowLayoutPanel2.TabIndex = 33;
+            // 
             // readDone
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(734, 961);
+            Controls.Add(flowLayoutPanel2);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(pictureBox6);
             Controls.Add(searchLogo);
@@ -151,6 +199,7 @@
             Controls.Add(label1);
             Controls.Add(mainLogo);
             Name = "readDone";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "readDone";
             Load += readDone_Load;
             ((System.ComponentModel.ISupportInitialize)mainLogo).EndInit();
@@ -172,5 +221,9 @@
         private PictureBox searchLogo;
         private PictureBox pictureBox6;
         private FlowLayoutPanel flowLayoutPanel1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private FlowLayoutPanel flowLayoutPanel2;
     }
 }

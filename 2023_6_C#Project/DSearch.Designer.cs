@@ -267,6 +267,7 @@
             picReading.Size = new Size(160, 200);
             picReading.TabIndex = 1;
             picReading.TabStop = false;
+            picReading.Click += picReading_Click;
             // 
             // picReadLike
             // 

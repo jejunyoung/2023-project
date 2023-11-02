@@ -20,7 +20,7 @@ namespace _2023_6_C_Project
             InitializeComponent();
         }
 
-        
+
         private void search_Click(object sender, EventArgs e)
         {
             search form = new search(); // 새로운 search 폼 인스턴스 생성
@@ -60,6 +60,14 @@ namespace _2023_6_C_Project
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            readDone form = new readDone();
+            this.Hide();
+            form.ShowDialog();
+            Application.Exit();
         }
     }
 }

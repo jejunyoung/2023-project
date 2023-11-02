@@ -91,7 +91,7 @@ namespace _2023_6_C_Project //test
                 XmlNode coverNode = itemNode.SelectSingleNode("ns:cover", nsManager); // 표지 이미지 URL 정보 가져오기
                 XmlNode isbn13Node = itemNode.SelectSingleNode("ns:isbn13", nsManager); // isbn(국제 표준 도서 번호)정보 가져오기
 
-                if (titleNode != null && authorNode != null && publisherNode != null && pubdateNode != null && isbn13Node !=null)
+                if (titleNode != null && authorNode != null && publisherNode != null && pubdateNode != null && isbn13Node != null)
                 {
                     // 각 항목의 정보 추출
                     string title = titleNode.InnerText;
@@ -266,6 +266,14 @@ namespace _2023_6_C_Project //test
 
         private void searchLv_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-        }        
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            readDone form = new readDone();
+            this.Hide();
+            form.ShowDialog();
+            Application.Exit();
+        }
     }
 }

@@ -9,7 +9,6 @@ namespace _2023_6_C_Project
     public partial class readDone : Form
     {
         private string userNum;
-        private int groupBoxTop = 170;
 
         public readDone()
         {
@@ -20,12 +19,14 @@ namespace _2023_6_C_Project
         private void readDone_Load(object sender, EventArgs e)
         {
             string connectionString = "Server=mysql6.c3ts2gxxyaaf.ap-northeast-2.rds.amazonaws.com;Database=mybook;Uid=mydb;Pwd=12345678;";
+
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
                 string query = "SELECT readDoneTbl.bookID, booktbl.bookCover, booktbl.bookName FROM readDoneTbl " +
                                "INNER JOIN booktbl ON readDoneTbl.bookID = booktbl.bookID " +
                                "WHERE readDoneTbl.userNum = @userNum";
+
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     int userNumToSearch = int.Parse(userNum);
@@ -34,27 +35,41 @@ namespace _2023_6_C_Project
 
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
+                        Panel panel = new Panel(); // 패널 생성
+                        panel.Dock = DockStyle.Fill;
+                        this.Controls.Add(panel); // 패널을 폼에 추가
+
+                        int verticalSpacing = 10; // 수직 간격을 원하는 크기로 설정
+                        int horizontalSpacing = 65; // 수평 간격을 원하는 크기로 설정
+
+                        int columnCount = 3; // 세로로 표시할 열의 수
+                        int itemWidth = 160; // 각 항목의 너비
+                        int itemHeight = 200; // 각 항목의 높이
+                        int x = 70; // 초기 X 위치
+                        int y = 210; // 초기 Y 위치
+
                         while (reader.Read())
                         {
                             long bookID = reader.GetInt64(0);
                             string imageUrl = reader.GetString(1);
-                            string bookName = reader.GetString(2); // bookName을 가져옴
+                            string bookName = reader.GetString(2);
 
                             if (!string.IsNullOrEmpty(imageUrl))
                             {
                                 using (WebClient webClient = new WebClient())
                                 {
                                     byte[] imageData = webClient.DownloadData(imageUrl);
+
                                     if (imageData != null)
                                     {
                                         GroupBox groupBox = new GroupBox();
                                         groupBox.Text = "";
-                                        groupBox.Location = new Point(50, groupBoxTop);
-                                        groupBox.Size = new Size(650, 150);
+                                        groupBox.Location = new Point(x, y);
+                                        groupBox.Size = new Size(itemWidth, itemHeight);
 
                                         PictureBox pictureBox = new PictureBox();
-                                        pictureBox.Location = new Point(20, 20);
-                                        pictureBox.Size = new Size(100, 120);
+                                        pictureBox.Location = new Point(40, 20);
+                                        pictureBox.Size = new Size(100, 130);
 
                                         using (System.IO.MemoryStream ms = new System.IO.MemoryStream(imageData))
                                         {
@@ -63,16 +78,21 @@ namespace _2023_6_C_Project
 
                                         groupBox.Controls.Add(pictureBox);
 
-                                        // 라벨 추가 (bookName 표시)
                                         Label nameLabel = new Label();
-                                        nameLabel.Location = new Point(150, 50);
-                                        nameLabel.Size = new Size(200, 20);
-                                        nameLabel.Text = "BookName: " + bookName;
+                                        nameLabel.Location = new Point(20, 160);
+                                        nameLabel.Size = new Size(120, 25);
+                                        nameLabel.Text = bookName;
                                         groupBox.Controls.Add(nameLabel);
 
-                                        this.Controls.Add(groupBox);
+                                        panel.Controls.Add(groupBox); // 패널에 그룹박스 추가
 
-                                        groupBoxTop += 170;
+                                        // 열을 다 채우면 다음 행으로 이동
+                                        x += itemWidth + horizontalSpacing; // 수평 간격 추가
+                                        if (x >= columnCount * (itemWidth + horizontalSpacing))
+                                        {
+                                            x = 70;
+                                            y += itemHeight + verticalSpacing; // 수직 간격 추가
+                                        }
                                     }
                                 }
                             }

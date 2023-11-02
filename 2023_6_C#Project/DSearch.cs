@@ -19,7 +19,7 @@ namespace _2023_6_C_Project
         {
             this.isbnInfo = isbnInfo;
             userNum = Program.UserNum;
-            InitializeComponent(); // Initialize 메서드는 파라미터를 받지 않도록 변경했습니다.
+            InitializeComponent();
 
             MessageBox.Show(isbnInfo);
             MessageBox.Show(userNum);
@@ -209,6 +209,52 @@ namespace _2023_6_C_Project
             readDone form = new readDone();
             this.Hide();
             form.ShowDialog();
+        }
+
+        private void picReading_Click(object sender, EventArgs e)
+        {
+            MySqlConnection connection = new MySqlConnection("Server=mysql6.c3ts2gxxyaaf.ap-northeast-2.rds.amazonaws.com;Database=mybook;Uid=mydb;Pwd=12345678;");
+            connection.Open();
+
+            try
+            {
+                string checkQuery = "SELECT COUNT(*) FROM readingTbl WHERE bookID = @bookID AND userNum = @userNum";
+                MySqlCommand checkCommand = new MySqlCommand(checkQuery, connection);
+                checkCommand.Parameters.AddWithValue("@bookID", isbnInfo);
+                checkCommand.Parameters.AddWithValue("@userNum", userNum);
+
+                int rowCount = Convert.ToInt32(checkCommand.ExecuteScalar());
+
+                if (rowCount > 0)
+                {
+                    MessageBox.Show("이미 저장된 책입니다");
+                }
+                else
+                {
+                    // 중복이 아닌 경우에만 저장
+                    string insertQuery = "INSERT INTO readingTbl (bookID, userNum) VALUES (@bookID, @userNum)";
+                    MySqlCommand insertCommand = new MySqlCommand(insertQuery, connection);
+                    insertCommand.Parameters.AddWithValue("@bookID", isbnInfo);
+                    insertCommand.Parameters.AddWithValue("@userNum", userNum);
+
+                    int rowsAffected = insertCommand.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("읽은 책에 저장되었습니다.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("책 저장 중 오류 발생");
+                    }
+                }
+
+                connection.Close();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("데이터베이스 오류: " + ex.Message);
+            }
         }
     }
 }
