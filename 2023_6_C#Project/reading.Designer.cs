@@ -1,6 +1,6 @@
 ﻿namespace _2023_6_C_Project
 {
-    partial class readDone
+    partial class reading
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(readDone));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(reading));
             mainLogo = new PictureBox();
             label1 = new Label();
             txtSearch = new TextBox();
             btnSearch = new Button();
+            labReadDone = new Label();
+            labReading = new Label();
+            labReadLike = new Label();
             listView1 = new ListView();
             pictureBox4 = new PictureBox();
             searchLogo = new PictureBox();
             pictureBox6 = new PictureBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            labReadDone = new Label();
-            labReading = new Label();
-            labReadLike = new Label();
             flowLayoutPanel2 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)mainLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -55,7 +55,7 @@
             mainLogo.Name = "mainLogo";
             mainLogo.Size = new Size(182, 163);
             mainLogo.SizeMode = PictureBoxSizeMode.Zoom;
-            mainLogo.TabIndex = 18;
+            mainLogo.TabIndex = 19;
             mainLogo.TabStop = false;
             // 
             // label1
@@ -66,7 +66,7 @@
             label1.Location = new Point(286, 9);
             label1.Name = "label1";
             label1.Size = new Size(236, 84);
-            label1.TabIndex = 19;
+            label1.TabIndex = 20;
             label1.Text = "책장 모아";
             // 
             // txtSearch
@@ -77,16 +77,48 @@
             txtSearch.Location = new Point(58, 110);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(507, 46);
-            txtSearch.TabIndex = 20;
+            txtSearch.TabIndex = 21;
             // 
             // btnSearch
             // 
             btnSearch.Location = new Point(585, 110);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(105, 46);
-            btnSearch.TabIndex = 21;
+            btnSearch.TabIndex = 22;
             btnSearch.Text = "검색";
             btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // labReadDone
+            // 
+            labReadDone.AutoSize = true;
+            labReadDone.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            labReadDone.Location = new Point(89, 181);
+            labReadDone.Name = "labReadDone";
+            labReadDone.Size = new Size(120, 25);
+            labReadDone.TabIndex = 31;
+            labReadDone.Text = "다 읽었어요!";
+            labReadDone.Click += labReadDone_Click;
+            // 
+            // labReading
+            // 
+            labReading.AutoSize = true;
+            labReading.Font = new Font("맑은 고딕", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            labReading.Location = new Point(326, 176);
+            labReading.Name = "labReading";
+            labReading.Size = new Size(113, 30);
+            labReading.TabIndex = 32;
+            labReading.Text = "읽는 중~~";
+            // 
+            // labReadLike
+            // 
+            labReadLike.AutoSize = true;
+            labReadLike.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            labReadLike.Location = new Point(542, 181);
+            labReadLike.Name = "labReadLike";
+            labReadLike.Size = new Size(128, 25);
+            labReadLike.TabIndex = 33;
+            labReadLike.Text = "읽고 싶어요~";
+            labReadLike.Click += labReadLike_Click;
             // 
             // listView1
             // 
@@ -95,7 +127,7 @@
             listView1.Location = new Point(0, 850);
             listView1.Name = "listView1";
             listView1.Size = new Size(734, 112);
-            listView1.TabIndex = 22;
+            listView1.TabIndex = 34;
             listView1.UseCompatibleStateImageBehavior = false;
             // 
             // pictureBox4
@@ -106,7 +138,7 @@
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(174, 131);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 23;
+            pictureBox4.TabIndex = 35;
             pictureBox4.TabStop = false;
             // 
             // searchLogo
@@ -117,7 +149,7 @@
             searchLogo.Name = "searchLogo";
             searchLogo.Size = new Size(146, 81);
             searchLogo.SizeMode = PictureBoxSizeMode.Zoom;
-            searchLogo.TabIndex = 24;
+            searchLogo.TabIndex = 36;
             searchLogo.TabStop = false;
             // 
             // pictureBox6
@@ -128,7 +160,7 @@
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(149, 89);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox6.TabIndex = 25;
+            pictureBox6.TabIndex = 37;
             pictureBox6.TabStop = false;
             // 
             // flowLayoutPanel1
@@ -137,73 +169,41 @@
             flowLayoutPanel1.Location = new Point(58, 840);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(200, 10);
-            flowLayoutPanel1.TabIndex = 29;
-            // 
-            // labReadDone
-            // 
-            labReadDone.AutoSize = true;
-            labReadDone.Font = new Font("맑은 고딕", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            labReadDone.Location = new Point(88, 176);
-            labReadDone.Name = "labReadDone";
-            labReadDone.Size = new Size(132, 30);
-            labReadDone.TabIndex = 30;
-            labReadDone.Text = "다 읽었어요!";
-            // 
-            // labReading
-            // 
-            labReading.AutoSize = true;
-            labReading.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            labReading.Location = new Point(326, 181);
-            labReading.Name = "labReading";
-            labReading.Size = new Size(104, 25);
-            labReading.TabIndex = 31;
-            labReading.Text = "읽는 중~~";
-            labReading.Click += labReading_Click;
-            // 
-            // labReadLike
-            // 
-            labReadLike.AutoSize = true;
-            labReadLike.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            labReadLike.Location = new Point(542, 181);
-            labReadLike.Name = "labReadLike";
-            labReadLike.Size = new Size(128, 25);
-            labReadLike.TabIndex = 32;
-            labReadLike.Text = "읽고 싶어요~";
-            labReadLike.Click += labReadLike_Click;
+            flowLayoutPanel1.TabIndex = 38;
             // 
             // flowLayoutPanel2
             // 
             flowLayoutPanel2.BackColor = SystemColors.GradientInactiveCaption;
             flowLayoutPanel2.BackgroundImageLayout = ImageLayout.None;
             flowLayoutPanel2.BorderStyle = BorderStyle.FixedSingle;
-            flowLayoutPanel2.Location = new Point(88, 206);
+            flowLayoutPanel2.Location = new Point(319, 206);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(132, 5);
-            flowLayoutPanel2.TabIndex = 33;
+            flowLayoutPanel2.Size = new Size(120, 5);
+            flowLayoutPanel2.TabIndex = 39;
             // 
-            // readDone
+            // reading
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(734, 961);
             Controls.Add(flowLayoutPanel2);
-            Controls.Add(labReadLike);
-            Controls.Add(labReading);
-            Controls.Add(labReadDone);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(pictureBox6);
             Controls.Add(searchLogo);
             Controls.Add(pictureBox4);
             Controls.Add(listView1);
+            Controls.Add(labReadLike);
+            Controls.Add(labReading);
+            Controls.Add(labReadDone);
             Controls.Add(btnSearch);
             Controls.Add(txtSearch);
             Controls.Add(label1);
             Controls.Add(mainLogo);
-            Name = "readDone";
+            Name = "reading";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "readDone";
-            Load += readDone_Load;
+            Text = "reading";
+            Load += reading_Load;
             ((System.ComponentModel.ISupportInitialize)mainLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)searchLogo).EndInit();
@@ -218,14 +218,14 @@
         private Label label1;
         private TextBox txtSearch;
         private Button btnSearch;
+        private Label labReadDone;
+        private Label labReading;
+        private Label labReadLike;
         private ListView listView1;
         private PictureBox pictureBox4;
         private PictureBox searchLogo;
         private PictureBox pictureBox6;
         private FlowLayoutPanel flowLayoutPanel1;
-        private Label labReadDone;
-        private Label labReading;
-        private Label labReadLike;
         private FlowLayoutPanel flowLayoutPanel2;
     }
 }

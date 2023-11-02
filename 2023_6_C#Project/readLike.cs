@@ -1,31 +1,36 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
-using System.Windows.Forms;
+using System.Drawing;
+using System.Linq;
 using System.Net;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace _2023_6_C_Project
 {
-    public partial class readDone : Form
+    public partial class readLike : Form
     {
         private string userNum;
-
-        public readDone()
+        public readLike()
         {
             InitializeComponent();
             userNum = Program.UserNum;
         }
 
-        private void readDone_Load(object sender, EventArgs e)
+        private void readLike_Load(object sender, EventArgs e)
         {
             string connectionString = "Server=mysql6.c3ts2gxxyaaf.ap-northeast-2.rds.amazonaws.com;Database=mybook;Uid=mydb;Pwd=12345678;";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT readDoneTbl.bookID, booktbl.bookCover, booktbl.bookName FROM readDoneTbl " +
-                               "INNER JOIN booktbl ON readDoneTbl.bookID = booktbl.bookID " +
-                               "WHERE readDoneTbl.userNum = @userNum";
+                string query = "SELECT readLikeTbl.bookID, booktbl.bookCover, booktbl.bookName FROM readLikeTbl " +
+                               "INNER JOIN booktbl ON readLikeTbl.bookID = booktbl.bookID " +
+                               "WHERE readLikeTbl.userNum = @userNum";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
@@ -102,17 +107,17 @@ namespace _2023_6_C_Project
             }
         }
 
-        private void labReading_Click(object sender, EventArgs e)
+        private void labReadDone_Click(object sender, EventArgs e)
         {
-            reading form = new reading();
+            readDone form = new readDone();
             this.Hide();
             form.ShowDialog();
             Application.Exit();
         }
 
-        private void labReadLike_Click(object sender, EventArgs e)
+        private void labReading_Click(object sender, EventArgs e)
         {
-            readLike form = new readLike();
+            reading form = new reading();
             this.Hide();
             form.ShowDialog();
             Application.Exit();

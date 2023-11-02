@@ -277,6 +277,7 @@
             picReadLike.Size = new Size(160, 200);
             picReadLike.TabIndex = 2;
             picReadLike.TabStop = false;
+            picReadLike.Click += picReadLike_Click;
             // 
             // groupBox1
             // 
