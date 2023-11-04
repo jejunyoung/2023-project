@@ -12,32 +12,32 @@ using System.Windows.Forms;
 
 namespace _2023_6_C_Project
 {
-    public partial class Dreading : Form
+    public partial class DreadDone : Form
     {
-        private string readingBookID;
+        private string readDoneBookID;
         private string userNum;
-        public Dreading(string readingBookID)
+        public DreadDone(string readDoneBookID)
         {
             InitializeComponent();
-            this.readingBookID = readingBookID;
+            this.readDoneBookID = readDoneBookID;
             userNum = Program.UserNum;
         }
 
-        private void Dreading_Load(object sender, EventArgs e)
+        private void DreadDone_Load(object sender, EventArgs e)
         {
             string connectionString = "Server=mysql6.c3ts2gxxyaaf.ap-northeast-2.rds.amazonaws.com;Database=mybook;Uid=mydb;Pwd=12345678;";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
 
-                string query = "SELECT readingTbl.bookID, booktbl.bookCover, booktbl.bookName, readingTbl.bookReport " +
-               "FROM readingTbl " +
-               "INNER JOIN booktbl ON readingTbl.bookID = booktbl.bookID " +
-               "WHERE readingTbl.userNum = @userNum AND readingTbl.bookID = @readingBookID";
+                string query = "SELECT readDoneTbl.bookID, booktbl.bookCover, booktbl.bookName, readDoneTbl.bookReport " +
+               "FROM readDoneTbl " +
+               "INNER JOIN booktbl ON readDoneTbl.bookID = booktbl.bookID " +
+               "WHERE readDoneTbl.userNum = @userNum AND readDoneTbl.bookID = @readDoneBookID";
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@userNum", userNum);
-                    command.Parameters.AddWithValue("@readingBookID", readingBookID);
+                    command.Parameters.AddWithValue("@readDoneBookID", readDoneBookID);
 
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
@@ -71,7 +71,7 @@ namespace _2023_6_C_Project
 
         private void picBack_Click(object sender, EventArgs e)
         {
-            reading form = new reading();
+            readDone form = new readDone();
             this.Hide();
             form.ShowDialog();
             Application.Exit();
@@ -86,14 +86,14 @@ namespace _2023_6_C_Project
             {
                 connection.Open();
 
-                string query = "UPDATE readingTbl SET bookReport = @bookReport " +
-                "WHERE userNum = @userNum AND bookID = @readingBookID";
+                string query = "UPDATE readDoneTbl SET bookReport = @bookReport " +
+                "WHERE userNum = @userNum AND bookID = @readDoneBookID";
 
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@userNum", userNum);
-                    command.Parameters.AddWithValue("@readingBookID", readingBookID);
+                    command.Parameters.AddWithValue("@readDoneBookID", readDoneBookID);
                     command.Parameters.AddWithValue("@bookReport", bookReportText); // 라벨2의 텍스트를 파라미터로 설정
                     // 필요한 조건을 WHERE 절에 지정
 
@@ -128,19 +128,19 @@ namespace _2023_6_C_Project
             {
                 connection.Open();
 
-                string query = "DELETE FROM readingTbl WHERE userNum = @userNum AND bookID = @readingBookID";
+                string query = "DELETE FROM readDoneTbl WHERE userNum = @userNum AND bookID = @readDoneBookID";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@userNum", userNum);
-                    command.Parameters.AddWithValue("@readingBookID", readingBookID);
+                    command.Parameters.AddWithValue("@readDoneBookID", readDoneBookID);
 
                     int rowsAffected = command.ExecuteNonQuery();
 
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("레코드가 성공적으로 삭제되었습니다.");
-                        reading form = new reading();
+                        readDone form = new readDone();
                         this.Hide();
                         form.ShowDialog();
                         Application.Exit();

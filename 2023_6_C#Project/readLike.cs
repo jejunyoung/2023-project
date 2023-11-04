@@ -86,8 +86,6 @@ namespace _2023_6_C_Project
                                             pictureBox.Image = Image.FromStream(ms);
                                         }
 
-                                        groupBox.Controls.Add(pictureBox);
-
                                         Label nameLabel = new Label();
                                         nameLabel.Location = new Point(20, 160);
                                         nameLabel.Size = new Size(120, 25);

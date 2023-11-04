@@ -66,23 +66,27 @@ namespace _2023_6_C_Project
                                         groupBox.Text = "";
                                         groupBox.Location = new Point(x, y);
                                         groupBox.Size = new Size(itemWidth, itemHeight);
+                                        groupBox.Tag = bookID;
+                                        groupBox.Click += groupBox_Click;
+                                        this.Controls.Add(groupBox);
 
                                         PictureBox pictureBox = new PictureBox();
                                         pictureBox.Location = new Point(40, 20);
                                         pictureBox.Size = new Size(100, 130);
+                                        groupBox.Controls.Add(pictureBox);
+                                        pictureBox.Click += groupBox_Click;
 
                                         using (System.IO.MemoryStream ms = new System.IO.MemoryStream(imageData))
                                         {
                                             pictureBox.Image = Image.FromStream(ms);
                                         }
 
-                                        groupBox.Controls.Add(pictureBox);
-
                                         Label nameLabel = new Label();
                                         nameLabel.Location = new Point(20, 160);
                                         nameLabel.Size = new Size(120, 25);
                                         nameLabel.Text = bookName;
                                         groupBox.Controls.Add(nameLabel);
+                                        pictureBox.Click += groupBox_Click;
 
                                         panel.Controls.Add(groupBox); // 패널에 그룹박스 추가
 
@@ -100,6 +104,50 @@ namespace _2023_6_C_Project
                     }
                 }
             }
+        }
+
+        public void groupBox_Click(object sender, EventArgs e)
+        {
+            // 클릭한 컨트롤을 확인
+            Control clickedControl = sender as Control;
+
+            // 클릭한 그룹 박스, 이미지 박스, 라벨을 가져옴
+            Control parentControl = GetParentGroupBox(clickedControl);
+
+            // 클릭한 그룹 박스에서 ISBN 정보 가져오기
+            if (parentControl is GroupBox)
+            {
+                string readDoneBookID = GetIsbnInfoFromGroupBox(parentControl as GroupBox);
+
+                DreadDone form = new DreadDone(readDoneBookID);
+                this.Hide();
+                form.ShowDialog();
+                Application.Exit();
+            }
+        }
+
+
+        // 클릭한 컨트롤의 부모 그룹 박스를 찾는 메서드
+        private Control GetParentGroupBox(Control control)
+        {
+            while (control != null && !(control is GroupBox))
+            {
+                control = control.Parent;
+            }
+            return control;
+        }
+
+        // 클릭한 그룹 박스에서 ISBN 정보를 가져오는 메서드
+        private string GetIsbnInfoFromGroupBox(GroupBox groupBox)
+        {
+            if (groupBox != null && groupBox.Tag != null)
+            {
+                // 그룹 박스의 Tag 속성에서 ISBN 정보를 가져옵니다.
+                string readDoneBookID = groupBox.Tag.ToString(); // Tag는 object 형식이므로 ToString()으로 변환
+                return readDoneBookID;
+            }
+
+            return "ISBN 정보를 찾을 수 없습니다.";
         }
 
         private void labReading_Click(object sender, EventArgs e)

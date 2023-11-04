@@ -1,6 +1,6 @@
 ﻿namespace _2023_6_C_Project
 {
-    partial class Dreading
+    partial class DreadDone
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dreading));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DreadDone));
             mainLogo = new PictureBox();
             label1 = new Label();
             txtSearch = new TextBox();
@@ -66,7 +66,7 @@
             mainLogo.Name = "mainLogo";
             mainLogo.Size = new Size(182, 163);
             mainLogo.SizeMode = PictureBoxSizeMode.Zoom;
-            mainLogo.TabIndex = 22;
+            mainLogo.TabIndex = 23;
             mainLogo.TabStop = false;
             // 
             // label1
@@ -77,7 +77,7 @@
             label1.Location = new Point(286, 9);
             label1.Name = "label1";
             label1.Size = new Size(236, 84);
-            label1.TabIndex = 23;
+            label1.TabIndex = 24;
             label1.Text = "책장 모아";
             // 
             // txtSearch
@@ -88,14 +88,14 @@
             txtSearch.Location = new Point(58, 110);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(507, 46);
-            txtSearch.TabIndex = 24;
+            txtSearch.TabIndex = 25;
             // 
             // btnSearch
             // 
             btnSearch.Location = new Point(585, 110);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(105, 46);
-            btnSearch.TabIndex = 25;
+            btnSearch.TabIndex = 26;
             btnSearch.Text = "검색";
             btnSearch.UseVisualStyleBackColor = true;
             // 
@@ -115,7 +115,7 @@
             groupBox1.Margin = new Padding(0);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(650, 600);
-            groupBox1.TabIndex = 48;
+            groupBox1.TabIndex = 49;
             groupBox1.TabStop = false;
             // 
             // labSave
@@ -209,7 +209,7 @@
             picBack.Name = "picBack";
             picBack.Size = new Size(68, 53);
             picBack.SizeMode = PictureBoxSizeMode.Zoom;
-            picBack.TabIndex = 9;
+            picBack.TabIndex = 10;
             picBack.TabStop = false;
             picBack.Click += picBack_Click;
             // 
@@ -220,7 +220,7 @@
             listView1.Location = new Point(0, 850);
             listView1.Name = "listView1";
             listView1.Size = new Size(734, 112);
-            listView1.TabIndex = 49;
+            listView1.TabIndex = 50;
             listView1.UseCompatibleStateImageBehavior = false;
             // 
             // pictureBox4
@@ -231,7 +231,7 @@
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(174, 131);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 50;
+            pictureBox4.TabIndex = 51;
             pictureBox4.TabStop = false;
             // 
             // searchLogo
@@ -242,7 +242,7 @@
             searchLogo.Name = "searchLogo";
             searchLogo.Size = new Size(146, 81);
             searchLogo.SizeMode = PictureBoxSizeMode.Zoom;
-            searchLogo.TabIndex = 51;
+            searchLogo.TabIndex = 52;
             searchLogo.TabStop = false;
             // 
             // pictureBox6
@@ -253,7 +253,7 @@
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(149, 89);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox6.TabIndex = 52;
+            pictureBox6.TabIndex = 53;
             pictureBox6.TabStop = false;
             // 
             // flowLayoutPanel1
@@ -262,9 +262,9 @@
             flowLayoutPanel1.Location = new Point(58, 840);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(200, 10);
-            flowLayoutPanel1.TabIndex = 53;
+            flowLayoutPanel1.TabIndex = 54;
             // 
-            // Dreading
+            // DreadDone
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -281,10 +281,10 @@
             Controls.Add(txtSearch);
             Controls.Add(label1);
             Controls.Add(mainLogo);
-            Name = "Dreading";
+            Name = "DreadDone";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Dreading";
-            Load += Dreading_Load;
+            Text = "DreadDone";
+            Load += DreadDone_Load;
             ((System.ComponentModel.ISupportInitialize)mainLogo).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

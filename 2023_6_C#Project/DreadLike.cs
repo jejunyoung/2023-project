@@ -73,7 +73,7 @@ namespace _2023_6_C_Project
 
         private void picBack_Click(object sender, EventArgs e)
         {
-            reading form = new reading();
+            readLike form = new readLike();
             this.Hide();
             form.ShowDialog();
             Application.Exit();
