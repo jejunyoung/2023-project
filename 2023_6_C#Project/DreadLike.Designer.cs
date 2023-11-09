@@ -48,6 +48,7 @@
             picCover = new PictureBox();
             label3 = new Label();
             picBack = new PictureBox();
+            pictureBox7 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)mainLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)searchLogo).BeginInit();
@@ -57,6 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)picDelete).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picCover).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picBack).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
             // mainLogo
@@ -68,6 +70,7 @@
             mainLogo.SizeMode = PictureBoxSizeMode.Zoom;
             mainLogo.TabIndex = 21;
             mainLogo.TabStop = false;
+            mainLogo.Click += mainLogo_Click;
             // 
             // label1
             // 
@@ -79,6 +82,7 @@
             label1.Size = new Size(236, 84);
             label1.TabIndex = 22;
             label1.Text = "책장 모아";
+            label1.Click += label1_Click;
             // 
             // txtSearch
             // 
@@ -113,7 +117,7 @@
             // 
             pictureBox4.BackColor = SystemColors.ButtonFace;
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(70, 845);
+            pictureBox4.Location = new Point(215, 841);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(174, 131);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
@@ -124,7 +128,7 @@
             // 
             searchLogo.BackColor = SystemColors.ButtonFace;
             searchLogo.Image = (Image)resources.GetObject("searchLogo.Image");
-            searchLogo.Location = new Point(296, 870);
+            searchLogo.Location = new Point(399, 868);
             searchLogo.Name = "searchLogo";
             searchLogo.Size = new Size(146, 81);
             searchLogo.SizeMode = PictureBoxSizeMode.Zoom;
@@ -135,7 +139,7 @@
             // 
             pictureBox6.BackColor = SystemColors.ButtonFace;
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(541, 862);
+            pictureBox6.Location = new Point(564, 862);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(149, 89);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
@@ -145,7 +149,7 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.BackgroundImageLayout = ImageLayout.None;
-            flowLayoutPanel1.Location = new Point(58, 840);
+            flowLayoutPanel1.Location = new Point(205, 840);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(200, 10);
             flowLayoutPanel1.TabIndex = 46;
@@ -264,12 +268,25 @@
             picBack.TabStop = false;
             picBack.Click += picBack_Click;
             // 
+            // pictureBox7
+            // 
+            pictureBox7.BackColor = SystemColors.ButtonFace;
+            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
+            pictureBox7.Location = new Point(86, 868);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(82, 81);
+            pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox7.TabIndex = 77;
+            pictureBox7.TabStop = false;
+            pictureBox7.Click += pictureBox7_Click;
+            // 
             // DreadLike
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(734, 961);
+            Controls.Add(pictureBox7);
             Controls.Add(picBack);
             Controls.Add(groupBox1);
             Controls.Add(flowLayoutPanel1);
@@ -295,6 +312,7 @@
             ((System.ComponentModel.ISupportInitialize)picDelete).EndInit();
             ((System.ComponentModel.ISupportInitialize)picCover).EndInit();
             ((System.ComponentModel.ISupportInitialize)picBack).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -320,5 +338,6 @@
         private PictureBox picDelete;
         private Label labSave;
         private PictureBox picBack;
+        private PictureBox pictureBox7;
     }
 }

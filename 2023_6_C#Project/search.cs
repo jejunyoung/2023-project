@@ -215,7 +215,6 @@ namespace _2023_6_C_Project //test
             if (parentControl is GroupBox)
             {
                 string isbnInfo = GetIsbnInfoFromGroupBox(parentControl as GroupBox);
-                MessageBox.Show(isbnInfo);
 
                 DSearch form = new DSearch(isbnInfo); // userNumber를 전달
                 this.Hide();
@@ -253,19 +252,6 @@ namespace _2023_6_C_Project //test
             this.Hide();
             form.ShowDialog();
             Application.Exit();
-        }
-
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void search_Load(object sender, EventArgs e)
-        {
-        }
-
-        private void searchLv_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)

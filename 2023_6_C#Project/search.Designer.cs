@@ -40,10 +40,12 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             imageList1 = new ImageList(components);
             listView1 = new ListView();
+            pictureBox7 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)mainLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
             // mainLogo
@@ -67,6 +69,7 @@
             label1.Size = new Size(236, 84);
             label1.TabIndex = 17;
             label1.Text = "책장 모아";
+            label1.Click += mainLogo_Click;
             // 
             // txtSearch
             // 
@@ -77,7 +80,6 @@
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(507, 46);
             txtSearch.TabIndex = 18;
-            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // btnSearch
             // 
@@ -93,7 +95,7 @@
             // 
             pictureBox4.BackColor = SystemColors.ButtonFace;
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(70, 845);
+            pictureBox4.Location = new Point(215, 841);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(174, 131);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
@@ -105,7 +107,7 @@
             // 
             pictureBox5.BackColor = SystemColors.ButtonFace;
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(296, 870);
+            pictureBox5.Location = new Point(399, 868);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(146, 81);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
@@ -116,7 +118,7 @@
             // 
             pictureBox6.BackColor = SystemColors.ButtonFace;
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(541, 862);
+            pictureBox6.Location = new Point(564, 862);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(149, 89);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
@@ -126,7 +128,7 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.BackgroundImageLayout = ImageLayout.None;
-            flowLayoutPanel1.Location = new Point(58, 840);
+            flowLayoutPanel1.Location = new Point(205, 840);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(200, 10);
             flowLayoutPanel1.TabIndex = 25;
@@ -147,12 +149,25 @@
             listView1.TabIndex = 20;
             listView1.UseCompatibleStateImageBehavior = false;
             // 
+            // pictureBox7
+            // 
+            pictureBox7.BackColor = SystemColors.ButtonFace;
+            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
+            pictureBox7.Location = new Point(86, 868);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(82, 81);
+            pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox7.TabIndex = 77;
+            pictureBox7.TabStop = false;
+            pictureBox7.Click += mainLogo_Click;
+            // 
             // search
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(734, 961);
+            Controls.Add(pictureBox7);
             Controls.Add(txtSearch);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(pictureBox4);
@@ -165,11 +180,11 @@
             Name = "search";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "search";
-            Load += search_Load;
             ((System.ComponentModel.ISupportInitialize)mainLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -186,5 +201,6 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private ImageList imageList1;
         private ListView listView1;
+        private PictureBox pictureBox7;
     }
 }

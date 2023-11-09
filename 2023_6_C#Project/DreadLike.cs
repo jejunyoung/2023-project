@@ -164,5 +164,29 @@ namespace _2023_6_C_Project
         {
             DeleteRecord();
         }
+
+        private void mainLogo_Click(object sender, EventArgs e)
+        {
+            Main form = new Main();
+            this.Hide();
+            form.ShowDialog();
+            Application.Exit();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Main form = new Main();
+            this.Hide();
+            form.ShowDialog();
+            Application.Exit();
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            Main form = new Main();
+            this.Hide();
+            form.ShowDialog();
+            Application.Exit();
+        }
     }
 }

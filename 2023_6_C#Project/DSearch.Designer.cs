@@ -51,6 +51,7 @@
             picReading = new PictureBox();
             picReadLike = new PictureBox();
             groupBox1 = new GroupBox();
+            pictureBox7 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)mainLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)readDonePic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)searchLogo).BeginInit();
@@ -60,6 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)picReading).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picReadLike).BeginInit();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
             // mainLogo
@@ -118,7 +120,7 @@
             // 
             readDonePic.BackColor = SystemColors.ButtonFace;
             readDonePic.Image = (Image)resources.GetObject("readDonePic.Image");
-            readDonePic.Location = new Point(70, 845);
+            readDonePic.Location = new Point(215, 841);
             readDonePic.Name = "readDonePic";
             readDonePic.Size = new Size(174, 131);
             readDonePic.SizeMode = PictureBoxSizeMode.Zoom;
@@ -130,7 +132,7 @@
             // 
             searchLogo.BackColor = SystemColors.ButtonFace;
             searchLogo.Image = (Image)resources.GetObject("searchLogo.Image");
-            searchLogo.Location = new Point(296, 870);
+            searchLogo.Location = new Point(399, 868);
             searchLogo.Name = "searchLogo";
             searchLogo.Size = new Size(146, 81);
             searchLogo.SizeMode = PictureBoxSizeMode.Zoom;
@@ -142,7 +144,7 @@
             // 
             pictureBox6.BackColor = SystemColors.ButtonFace;
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(541, 862);
+            pictureBox6.Location = new Point(564, 862);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(149, 89);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
@@ -171,7 +173,7 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.BackgroundImageLayout = ImageLayout.None;
-            flowLayoutPanel1.Location = new Point(58, 840);
+            flowLayoutPanel1.Location = new Point(205, 840);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(200, 10);
             flowLayoutPanel1.TabIndex = 28;
@@ -292,12 +294,25 @@
             groupBox1.TabStop = false;
             groupBox1.Visible = false;
             // 
+            // pictureBox7
+            // 
+            pictureBox7.BackColor = SystemColors.ButtonFace;
+            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
+            pictureBox7.Location = new Point(86, 868);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(82, 81);
+            pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox7.TabIndex = 77;
+            pictureBox7.TabStop = false;
+            pictureBox7.Click += mainLogo_Click;
+            // 
             // DSearch
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(734, 961);
+            Controls.Add(pictureBox7);
             Controls.Add(groupBox1);
             Controls.Add(btnSave);
             Controls.Add(txtDescription);
@@ -330,6 +345,7 @@
             ((System.ComponentModel.ISupportInitialize)picReading).EndInit();
             ((System.ComponentModel.ISupportInitialize)picReadLike).EndInit();
             groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -358,5 +374,6 @@
         private PictureBox picReading;
         private PictureBox picReadLike;
         private GroupBox groupBox1;
+        private PictureBox pictureBox7;
     }
 }

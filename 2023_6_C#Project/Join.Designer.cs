@@ -77,6 +77,7 @@
             btnCheckId.AutoSize = true;
             btnCheckId.BackColor = Color.Transparent;
             btnCheckId.Font = new Font("강원교육현옥샘 Medium", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            btnCheckId.ForeColor = SystemColors.ControlText;
             btnCheckId.Location = new Point(520, 392);
             btnCheckId.Name = "btnCheckId";
             btnCheckId.Size = new Size(123, 37);

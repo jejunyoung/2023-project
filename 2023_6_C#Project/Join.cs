@@ -47,7 +47,7 @@ namespace _2023_6_C_Project
                 else
                 {
                     MessageBox.Show("사용 가능한 아이디입니다");  // 아이디가 사용 가능한 경우 메시지 표시 
-                    checkid = 1; 
+                    checkid = 1;
                 }
                 // 데이터베이스 연결 닫기
                 connection.Close();
@@ -80,7 +80,7 @@ namespace _2023_6_C_Project
 
                     // 데이터베이스에 삽입 쿼리 실행 후 결과 확인
                     if (insertCommand.ExecuteNonQuery() == 1)
-                    {                        
+                    {
                         MessageBox.Show(txtName.Text + "님 회원가입을 축하합니다"); // 회원가입 성공 메시지 표시
                         connection.Close();
                         Close(); //화면 닫기(로그인 화면으로 이동)

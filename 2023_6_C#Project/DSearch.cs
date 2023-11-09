@@ -143,7 +143,7 @@ namespace _2023_6_C_Project
             Main form = new Main();
             this.Hide();
             form.ShowDialog();
-            this.Show();
+            Application.Exit();
         }
 
         private void searchLogo_Click(object sender, EventArgs e)

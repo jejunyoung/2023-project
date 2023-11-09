@@ -170,5 +170,13 @@ namespace _2023_6_C_Project
             form.ShowDialog();
             Application.Exit();
         }
+
+        private void mainLogo_Click(object sender, EventArgs e)
+        {
+            Main form = new Main();
+            this.Hide();
+            form.ShowDialog();
+            Application.Exit();
+        }
     }
 }
