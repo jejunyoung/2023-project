@@ -123,6 +123,7 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 43;
             pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
             // 
             // searchLogo
             // 
@@ -134,6 +135,7 @@
             searchLogo.SizeMode = PictureBoxSizeMode.Zoom;
             searchLogo.TabIndex = 44;
             searchLogo.TabStop = false;
+            searchLogo.Click += searchLogo_Click;
             // 
             // pictureBox6
             // 
@@ -145,6 +147,7 @@
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 45;
             pictureBox6.TabStop = false;
+            pictureBox6.Click += pictureBox6_Click;
             // 
             // flowLayoutPanel1
             // 

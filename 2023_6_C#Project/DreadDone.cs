@@ -186,5 +186,13 @@ namespace _2023_6_C_Project
             form.ShowDialog();
             Application.Exit();
         }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            Preferences form = new Preferences();
+            this.Hide();
+            form.ShowDialog();
+            Application.Exit();
+        }
     }
 }
