@@ -40,11 +40,11 @@
             // 
             txtId.BackColor = Color.Tan;
             txtId.BorderStyle = BorderStyle.None;
-            txtId.Font = new Font("강원교육현옥샘 Medium", 38.2499962F, FontStyle.Bold, GraphicsUnit.Point);
+            txtId.Font = new Font("Noto Sans KR", 38.25F, FontStyle.Bold, GraphicsUnit.Point);
             txtId.Location = new Point(203, 383);
             txtId.Name = "txtId";
             txtId.PlaceholderText = "아이디";
-            txtId.Size = new Size(311, 59);
+            txtId.Size = new Size(311, 74);
             txtId.TabIndex = 0;
             txtId.KeyPress += txtId_KeyPress;
             // 
@@ -52,11 +52,11 @@
             // 
             txtPwd.BackColor = Color.Tan;
             txtPwd.BorderStyle = BorderStyle.None;
-            txtPwd.Font = new Font("강원교육현옥샘 Medium", 38.2499962F, FontStyle.Bold, GraphicsUnit.Point);
+            txtPwd.Font = new Font("Noto Sans KR", 38.25F, FontStyle.Bold, GraphicsUnit.Point);
             txtPwd.Location = new Point(203, 502);
             txtPwd.Name = "txtPwd";
             txtPwd.PlaceholderText = "비밀번호";
-            txtPwd.Size = new Size(350, 59);
+            txtPwd.Size = new Size(350, 74);
             txtPwd.TabIndex = 1;
             txtPwd.KeyPress += txtPwd_KeyPress;
             // 
@@ -64,11 +64,11 @@
             // 
             txtName.BackColor = Color.Tan;
             txtName.BorderStyle = BorderStyle.None;
-            txtName.Font = new Font("강원교육현옥샘 Medium", 38.2499962F, FontStyle.Bold, GraphicsUnit.Point);
+            txtName.Font = new Font("Noto Sans KR", 38.25F, FontStyle.Bold, GraphicsUnit.Point);
             txtName.Location = new Point(203, 656);
             txtName.Name = "txtName";
             txtName.PlaceholderText = "이름";
-            txtName.Size = new Size(350, 59);
+            txtName.Size = new Size(350, 74);
             txtName.TabIndex = 2;
             txtName.KeyPress += txtName_KeyPress;
             // 
@@ -89,10 +89,10 @@
             // 
             btnJoin.AutoSize = true;
             btnJoin.BackColor = Color.Transparent;
-            btnJoin.Font = new Font("강원교육현옥샘 Medium", 36F, FontStyle.Bold, GraphicsUnit.Point);
-            btnJoin.Location = new Point(274, 814);
+            btnJoin.Font = new Font("Noto Sans KR", 36F, FontStyle.Bold, GraphicsUnit.Point);
+            btnJoin.Location = new Point(250, 806);
             btnJoin.Name = "btnJoin";
-            btnJoin.Size = new Size(136, 55);
+            btnJoin.Size = new Size(206, 70);
             btnJoin.TabIndex = 4;
             btnJoin.Text = "회원가입";
             btnJoin.Click += btnJoin_Click;

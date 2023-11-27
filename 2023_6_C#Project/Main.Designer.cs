@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             label1 = new Label();
-            textBox1 = new TextBox();
-            button1 = new Button();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             listView1 = new ListView();
@@ -150,29 +148,9 @@
             label1.TabIndex = 4;
             label1.Text = "책장 모아";
             // 
-            // textBox1
-            // 
-            textBox1.BackColor = SystemColors.Menu;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("강원교육현옥샘 Medium", 30F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox1.Location = new Point(58, 110);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(507, 46);
-            textBox1.TabIndex = 5;
-            textBox1.Click += textBox1_Click_1;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(585, 110);
-            button1.Name = "button1";
-            button1.Size = new Size(105, 46);
-            button1.TabIndex = 6;
-            button1.Text = "검색";
-            button1.UseVisualStyleBackColor = true;
-            // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.BackColor = Color.White;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 149);
             pictureBox1.Name = "pictureBox1";
@@ -261,7 +239,7 @@
             // labBook1
             // 
             labBook1.BackColor = Color.Transparent;
-            labBook1.Font = new Font("맑은 고딕", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            labBook1.Font = new Font("Noto Sans KR", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             labBook1.Location = new Point(157, 255);
             labBook1.Name = "labBook1";
             labBook1.Size = new Size(26, 122);
@@ -271,7 +249,7 @@
             // labBook2
             // 
             labBook2.BackColor = Color.Transparent;
-            labBook2.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook2.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook2.Location = new Point(202, 255);
             labBook2.Name = "labBook2";
             labBook2.Size = new Size(26, 122);
@@ -292,7 +270,7 @@
             // labBook3
             // 
             labBook3.BackColor = Color.Transparent;
-            labBook3.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook3.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook3.Location = new Point(243, 255);
             labBook3.Name = "labBook3";
             labBook3.Size = new Size(26, 122);
@@ -313,7 +291,7 @@
             // labBook4
             // 
             labBook4.BackColor = Color.Transparent;
-            labBook4.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook4.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook4.Location = new Point(287, 255);
             labBook4.Name = "labBook4";
             labBook4.Size = new Size(26, 122);
@@ -334,7 +312,7 @@
             // labBook5
             // 
             labBook5.BackColor = Color.Transparent;
-            labBook5.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook5.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook5.Location = new Point(330, 248);
             labBook5.Name = "labBook5";
             labBook5.Size = new Size(26, 122);
@@ -355,7 +333,7 @@
             // labBook6
             // 
             labBook6.BackColor = Color.Transparent;
-            labBook6.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook6.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook6.Location = new Point(372, 248);
             labBook6.Name = "labBook6";
             labBook6.Size = new Size(26, 122);
@@ -376,7 +354,7 @@
             // labBook7
             // 
             labBook7.BackColor = Color.Transparent;
-            labBook7.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook7.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook7.Location = new Point(414, 255);
             labBook7.Name = "labBook7";
             labBook7.Size = new Size(26, 122);
@@ -397,7 +375,7 @@
             // labBook8
             // 
             labBook8.BackColor = Color.Transparent;
-            labBook8.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook8.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook8.Location = new Point(457, 248);
             labBook8.Name = "labBook8";
             labBook8.Size = new Size(26, 122);
@@ -418,7 +396,7 @@
             // labBook9
             // 
             labBook9.BackColor = Color.Transparent;
-            labBook9.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook9.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook9.Location = new Point(502, 249);
             labBook9.Name = "labBook9";
             labBook9.Size = new Size(26, 122);
@@ -439,7 +417,7 @@
             // labBook10
             // 
             labBook10.BackColor = Color.Transparent;
-            labBook10.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook10.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook10.Location = new Point(547, 255);
             labBook10.Name = "labBook10";
             labBook10.Size = new Size(26, 122);
@@ -460,7 +438,7 @@
             // labBook20
             // 
             labBook20.BackColor = Color.Transparent;
-            labBook20.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook20.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook20.Location = new Point(546, 462);
             labBook20.Name = "labBook20";
             labBook20.Size = new Size(26, 122);
@@ -482,7 +460,7 @@
             // labBook19
             // 
             labBook19.BackColor = Color.Transparent;
-            labBook19.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook19.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook19.Location = new Point(501, 452);
             labBook19.Name = "labBook19";
             labBook19.Size = new Size(26, 122);
@@ -504,7 +482,7 @@
             // labBook18
             // 
             labBook18.BackColor = Color.Transparent;
-            labBook18.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook18.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook18.Location = new Point(456, 462);
             labBook18.Name = "labBook18";
             labBook18.Size = new Size(26, 122);
@@ -526,7 +504,7 @@
             // labBook17
             // 
             labBook17.BackColor = Color.Transparent;
-            labBook17.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook17.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook17.Location = new Point(413, 462);
             labBook17.Name = "labBook17";
             labBook17.Size = new Size(26, 122);
@@ -548,7 +526,7 @@
             // labBook16
             // 
             labBook16.BackColor = Color.Transparent;
-            labBook16.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook16.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook16.Location = new Point(370, 454);
             labBook16.Name = "labBook16";
             labBook16.Size = new Size(26, 122);
@@ -570,7 +548,7 @@
             // labBook15
             // 
             labBook15.BackColor = Color.Transparent;
-            labBook15.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook15.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook15.Location = new Point(329, 463);
             labBook15.Name = "labBook15";
             labBook15.Size = new Size(26, 122);
@@ -592,7 +570,7 @@
             // labBook14
             // 
             labBook14.BackColor = Color.Transparent;
-            labBook14.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook14.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook14.Location = new Point(286, 462);
             labBook14.Name = "labBook14";
             labBook14.Size = new Size(26, 122);
@@ -614,7 +592,7 @@
             // labBook13
             // 
             labBook13.BackColor = Color.Transparent;
-            labBook13.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook13.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook13.Location = new Point(242, 456);
             labBook13.Name = "labBook13";
             labBook13.Size = new Size(26, 122);
@@ -635,7 +613,7 @@
             // labBook12
             // 
             labBook12.BackColor = Color.Transparent;
-            labBook12.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook12.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook12.Location = new Point(201, 462);
             labBook12.Name = "labBook12";
             labBook12.Size = new Size(26, 122);
@@ -656,7 +634,7 @@
             // labBook11
             // 
             labBook11.BackColor = Color.Transparent;
-            labBook11.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook11.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook11.Location = new Point(157, 455);
             labBook11.Name = "labBook11";
             labBook11.Size = new Size(26, 122);
@@ -677,7 +655,7 @@
             // labBook30
             // 
             labBook30.BackColor = Color.Transparent;
-            labBook30.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook30.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook30.Location = new Point(546, 661);
             labBook30.Name = "labBook30";
             labBook30.Size = new Size(26, 122);
@@ -699,7 +677,7 @@
             // labBook29
             // 
             labBook29.BackColor = Color.Transparent;
-            labBook29.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook29.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook29.Location = new Point(501, 670);
             labBook29.Name = "labBook29";
             labBook29.Size = new Size(26, 122);
@@ -721,7 +699,7 @@
             // labBook28
             // 
             labBook28.BackColor = Color.Transparent;
-            labBook28.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook28.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook28.Location = new Point(456, 669);
             labBook28.Name = "labBook28";
             labBook28.Size = new Size(26, 122);
@@ -743,7 +721,7 @@
             // labBook27
             // 
             labBook27.BackColor = Color.Transparent;
-            labBook27.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook27.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook27.Location = new Point(413, 669);
             labBook27.Name = "labBook27";
             labBook27.Size = new Size(26, 122);
@@ -765,7 +743,7 @@
             // labBook26
             // 
             labBook26.BackColor = Color.Transparent;
-            labBook26.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook26.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook26.Location = new Point(371, 668);
             labBook26.Name = "labBook26";
             labBook26.Size = new Size(26, 122);
@@ -787,7 +765,7 @@
             // labBook25
             // 
             labBook25.BackColor = Color.Transparent;
-            labBook25.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook25.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook25.Location = new Point(329, 662);
             labBook25.Name = "labBook25";
             labBook25.Size = new Size(26, 122);
@@ -809,7 +787,7 @@
             // labBook24
             // 
             labBook24.BackColor = Color.Transparent;
-            labBook24.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook24.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook24.Location = new Point(287, 663);
             labBook24.Name = "labBook24";
             labBook24.Size = new Size(26, 122);
@@ -831,7 +809,7 @@
             // labBook23
             // 
             labBook23.BackColor = Color.Transparent;
-            labBook23.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook23.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook23.Location = new Point(242, 669);
             labBook23.Name = "labBook23";
             labBook23.Size = new Size(26, 122);
@@ -853,7 +831,7 @@
             // labBook22
             // 
             labBook22.BackColor = Color.Transparent;
-            labBook22.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook22.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook22.Location = new Point(200, 663);
             labBook22.Name = "labBook22";
             labBook22.Size = new Size(26, 122);
@@ -875,7 +853,7 @@
             // labBook21
             // 
             labBook21.BackColor = Color.Transparent;
-            labBook21.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labBook21.Font = new Font("Noto Sans KR", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labBook21.Location = new Point(157, 663);
             labBook21.Name = "labBook21";
             labBook21.Size = new Size(26, 122);
@@ -972,8 +950,6 @@
             Controls.Add(picBook2);
             Controls.Add(labBook1);
             Controls.Add(picBook1);
-            Controls.Add(button1);
-            Controls.Add(textBox1);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox6);
             Controls.Add(pictureBox5);
@@ -1029,8 +1005,6 @@
 
         #endregion
         private Label label1;
-        private TextBox textBox1;
-        private Button button1;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private ListView listView1;

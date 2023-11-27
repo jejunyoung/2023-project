@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Preferences));
             mainLogo = new PictureBox();
             label1 = new Label();
-            txtSearch = new TextBox();
-            btnSearch = new Button();
             listView1 = new ListView();
             pictureBox7 = new PictureBox();
             pictureBox4 = new PictureBox();
@@ -78,25 +76,6 @@
             label1.TabIndex = 23;
             label1.Text = "책장 모아";
             label1.Click += mainLogo_Click;
-            // 
-            // txtSearch
-            // 
-            txtSearch.BackColor = SystemColors.Menu;
-            txtSearch.BorderStyle = BorderStyle.None;
-            txtSearch.Font = new Font("강원교육현옥샘 Medium", 30F, FontStyle.Bold, GraphicsUnit.Point);
-            txtSearch.Location = new Point(58, 110);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(507, 46);
-            txtSearch.TabIndex = 24;
-            // 
-            // btnSearch
-            // 
-            btnSearch.Location = new Point(585, 110);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(105, 46);
-            btnSearch.TabIndex = 25;
-            btnSearch.Text = "검색";
-            btnSearch.UseVisualStyleBackColor = true;
             // 
             // listView1
             // 
@@ -166,72 +145,72 @@
             // labName
             // 
             labName.AutoSize = true;
-            labName.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            labName.Location = new Point(108, 239);
+            labName.Font = new Font("Noto Sans KR", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
+            labName.Location = new Point(108, 206);
             labName.Name = "labName";
-            labName.Size = new Size(87, 37);
+            labName.Size = new Size(82, 39);
             labName.TabIndex = 83;
             labName.Text = "이름: ";
             // 
             // txtName
             // 
-            txtName.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtName.Location = new Point(206, 239);
+            txtName.Font = new Font("Noto Sans KR", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
+            txtName.Location = new Point(206, 206);
             txtName.Name = "txtName";
-            txtName.Size = new Size(406, 43);
+            txtName.Size = new Size(406, 47);
             txtName.TabIndex = 84;
             // 
             // txtId
             // 
-            txtId.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtId.Location = new Point(228, 356);
+            txtId.Font = new Font("Noto Sans KR", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
+            txtId.Location = new Point(228, 333);
             txtId.Name = "txtId";
-            txtId.Size = new Size(384, 43);
+            txtId.Size = new Size(384, 47);
             txtId.TabIndex = 85;
             // 
             // txtPw
             // 
-            txtPw.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtPw.Location = new Point(246, 478);
+            txtPw.Font = new Font("Noto Sans KR", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
+            txtPw.Location = new Point(246, 464);
             txtPw.Name = "txtPw";
-            txtPw.Size = new Size(366, 43);
+            txtPw.Size = new Size(366, 47);
             txtPw.TabIndex = 86;
             // 
             // txtPw2
             // 
-            txtPw2.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtPw2.Location = new Point(309, 603);
+            txtPw2.Font = new Font("Noto Sans KR", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
+            txtPw2.Location = new Point(309, 591);
             txtPw2.Name = "txtPw2";
-            txtPw2.Size = new Size(303, 43);
+            txtPw2.Size = new Size(303, 47);
             txtPw2.TabIndex = 87;
             // 
             // labId
             // 
             labId.AutoSize = true;
-            labId.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            labId.Location = new Point(108, 356);
+            labId.Font = new Font("Noto Sans KR", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
+            labId.Location = new Point(108, 333);
             labId.Name = "labId";
-            labId.Size = new Size(114, 37);
+            labId.Size = new Size(107, 39);
             labId.TabIndex = 88;
             labId.Text = "아이디: ";
             // 
             // labPw
             // 
             labPw.AutoSize = true;
-            labPw.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            labPw.Location = new Point(108, 478);
+            labPw.Font = new Font("Noto Sans KR", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
+            labPw.Location = new Point(108, 464);
             labPw.Name = "labPw";
-            labPw.Size = new Size(132, 37);
+            labPw.Size = new Size(126, 39);
             labPw.TabIndex = 89;
             labPw.Text = "비밀번호:";
             // 
             // labPw2
             // 
             labPw2.AutoSize = true;
-            labPw2.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            labPw2.Location = new Point(108, 603);
+            labPw2.Font = new Font("Noto Sans KR", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
+            labPw2.Location = new Point(108, 591);
             labPw2.Name = "labPw2";
-            labPw2.Size = new Size(195, 37);
+            labPw2.Size = new Size(184, 39);
             labPw2.TabIndex = 90;
             labPw2.Text = "비밀번호 확인:";
             // 
@@ -279,8 +258,6 @@
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox7);
             Controls.Add(listView1);
-            Controls.Add(btnSearch);
-            Controls.Add(txtSearch);
             Controls.Add(label1);
             Controls.Add(mainLogo);
             Name = "Preferences";
@@ -300,8 +277,6 @@
 
         private PictureBox mainLogo;
         private Label label1;
-        private TextBox txtSearch;
-        private Button btnSearch;
         private ListView listView1;
         private PictureBox pictureBox7;
         private PictureBox pictureBox4;

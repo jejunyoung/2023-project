@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DreadDone));
             mainLogo = new PictureBox();
             label1 = new Label();
-            txtSearch = new TextBox();
-            btnSearch = new Button();
             groupBox1 = new GroupBox();
             labSave = new Label();
             labDelete = new Label();
@@ -84,25 +82,6 @@
             label1.Text = "책장 모아";
             label1.Click += label1_Click;
             // 
-            // txtSearch
-            // 
-            txtSearch.BackColor = SystemColors.Menu;
-            txtSearch.BorderStyle = BorderStyle.None;
-            txtSearch.Font = new Font("강원교육현옥샘 Medium", 30F, FontStyle.Bold, GraphicsUnit.Point);
-            txtSearch.Location = new Point(58, 110);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(507, 46);
-            txtSearch.TabIndex = 25;
-            // 
-            // btnSearch
-            // 
-            btnSearch.Location = new Point(585, 110);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(105, 46);
-            btnSearch.TabIndex = 26;
-            btnSearch.Text = "검색";
-            btnSearch.UseVisualStyleBackColor = true;
-            // 
             // groupBox1
             // 
             groupBox1.BackColor = Color.White;
@@ -115,20 +94,20 @@
             groupBox1.Controls.Add(labName);
             groupBox1.Controls.Add(picCover);
             groupBox1.Controls.Add(label3);
-            groupBox1.Location = new Point(46, 193);
+            groupBox1.Location = new Point(51, 143);
             groupBox1.Margin = new Padding(0);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(650, 600);
+            groupBox1.Size = new Size(650, 676);
             groupBox1.TabIndex = 49;
             groupBox1.TabStop = false;
             // 
             // labSave
             // 
             labSave.AutoSize = true;
-            labSave.Font = new Font("맑은 고딕", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            labSave.Location = new Point(516, 532);
+            labSave.Font = new Font("Noto Sans KR", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            labSave.Location = new Point(529, 604);
             labSave.Name = "labSave";
-            labSave.Size = new Size(97, 30);
+            labSave.Size = new Size(89, 30);
             labSave.TabIndex = 7;
             labSave.Text = "저장하기";
             labSave.Click += labSave_Click;
@@ -136,10 +115,10 @@
             // labDelete
             // 
             labDelete.AutoSize = true;
-            labDelete.Font = new Font("맑은 고딕", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            labDelete.Location = new Point(108, 532);
+            labDelete.Font = new Font("Noto Sans KR", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            labDelete.Location = new Point(108, 604);
             labDelete.Name = "labDelete";
-            labDelete.Size = new Size(55, 30);
+            labDelete.Size = new Size(51, 30);
             labDelete.TabIndex = 6;
             labDelete.Text = "삭제";
             labDelete.Click += labDelete_Click;
@@ -147,7 +126,7 @@
             // picSave
             // 
             picSave.Image = (Image)resources.GetObject("picSave.Image");
-            picSave.Location = new Point(443, 519);
+            picSave.Location = new Point(456, 591);
             picSave.Name = "picSave";
             picSave.Size = new Size(100, 52);
             picSave.SizeMode = PictureBoxSizeMode.Zoom;
@@ -158,7 +137,7 @@
             // picDelete
             // 
             picDelete.Image = (Image)resources.GetObject("picDelete.Image");
-            picDelete.Location = new Point(29, 519);
+            picDelete.Location = new Point(29, 591);
             picDelete.Name = "picDelete";
             picDelete.Size = new Size(109, 52);
             picDelete.SizeMode = PictureBoxSizeMode.Zoom;
@@ -168,18 +147,18 @@
             // 
             // txtReport
             // 
-            txtReport.Font = new Font("맑은 고딕", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtReport.Location = new Point(25, 308);
+            txtReport.Font = new Font("Noto Sans KR", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtReport.Location = new Point(26, 345);
             txtReport.Margin = new Padding(10);
             txtReport.Multiline = true;
             txtReport.Name = "txtReport";
-            txtReport.Size = new Size(600, 196);
+            txtReport.Size = new Size(600, 211);
             txtReport.TabIndex = 2;
             // 
             // labName
             // 
-            labName.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            labName.Location = new Point(29, 239);
+            labName.Font = new Font("Noto Sans KR", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
+            labName.Location = new Point(25, 273);
             labName.Name = "labName";
             labName.Size = new Size(596, 37);
             labName.TabIndex = 1;
@@ -191,7 +170,7 @@
             picCover.BackgroundImageLayout = ImageLayout.Zoom;
             picCover.Location = new Point(25, 25);
             picCover.Name = "picCover";
-            picCover.Size = new Size(600, 211);
+            picCover.Size = new Size(600, 230);
             picCover.SizeMode = PictureBoxSizeMode.Zoom;
             picCover.TabIndex = 0;
             picCover.TabStop = false;
@@ -199,17 +178,17 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(29, 285);
+            label3.Font = new Font("Noto Sans KR", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(29, 310);
             label3.Name = "label3";
-            label3.Size = new Size(69, 25);
+            label3.Size = new Size(63, 27);
             label3.TabIndex = 3;
             label3.Text = "메모장";
             // 
             // picBack
             // 
             picBack.Image = (Image)resources.GetObject("picBack.Image");
-            picBack.Location = new Point(660, 174);
+            picBack.Location = new Point(663, 120);
             picBack.Name = "picBack";
             picBack.Size = new Size(68, 53);
             picBack.SizeMode = PictureBoxSizeMode.Zoom;
@@ -295,8 +274,6 @@
             Controls.Add(listView1);
             Controls.Add(picBack);
             Controls.Add(groupBox1);
-            Controls.Add(btnSearch);
-            Controls.Add(txtSearch);
             Controls.Add(label1);
             Controls.Add(mainLogo);
             Name = "DreadDone";
@@ -322,8 +299,6 @@
 
         private PictureBox mainLogo;
         private Label label1;
-        private TextBox txtSearch;
-        private Button btnSearch;
         private GroupBox groupBox1;
         private Label labSave;
         private Label labDelete;

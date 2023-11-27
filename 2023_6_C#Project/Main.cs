@@ -56,39 +56,51 @@ namespace _2023_6_C_Project
         }
         private void Main_Load(object sender, EventArgs e)
         {
+            // Amazon RDS에 호스팅된 MySQL 데이터베이스에 연결하기 위한 연결 문자열 정의
             string connectionString = "Server=mysql6.c3ts2gxxyaaf.ap-northeast-2.rds.amazonaws.com;Database=mybook;Uid=mydb;Pwd=12345678;";
+
+            // MySqlConnection을 사용하여 MySQL 데이터베이스에 연결 설정
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
+                // 데이터베이스 연결 열기
                 connection.Open();
+
+                // 사용자 번호(userNum)를 기반으로 도서 정보를 검색하기 위한 SQL 쿼리 정의
                 string query = "SELECT readDoneTbl.bookID, booktbl.bookName " +
                                "FROM readDoneTbl " +
                                "INNER JOIN booktbl ON readDoneTbl.bookID = booktbl.bookID " +
                                "WHERE readDoneTbl.userNum = @userNum";
 
-                int controlIndex = 1; // 이미지 박스와 라벨의 인덱스
+                // PictureBox 및 Label에 대한 인덱스로 사용되는 controlIndex 초기화
+                int controlIndex = 1;
 
+                // SQL 쿼리와 MySqlConnection을 사용하여 MySqlCommand 객체 생성
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
+                    // SQL 쿼리에 userNum 매개변수 추가하여 SQL 인젝션 방지
                     command.Parameters.AddWithValue("@userNum", userNum);
 
+                    // MySqlDataReader를 사용하여 SQL 쿼리 실행 및 결과 집합 검색
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
+                        // 결과 집합을 반복하며 폼의 PictureBox 및 Label 업데이트
                         while (reader.Read() && controlIndex <= 30)
                         {
+                            // 결과 집합에서 bookID와 bookName 검색
                             long bookID = reader.GetInt64("bookID");
                             string bookName = reader.GetString("bookName");
 
-                            // 이미지 박스와 라벨을 폼에서 찾기
+                            // controlIndex를 기반으로 폼에서 PictureBox 및 Label 컨트롤 찾기
                             PictureBox pictureBox = (PictureBox)this.Controls.Find("picBook" + controlIndex, true).FirstOrDefault();
                             Label label = (Label)this.Controls.Find("labBook" + controlIndex, true).FirstOrDefault();
 
+                            // Label 텍스트를 bookName으로 업데이트하고 PictureBox를 표시로 변경
                             if (pictureBox != null && label != null)
                             {
                                 label.Text = bookName;
-
                                 pictureBox.Visible = true;
 
-                                // 인덱스 증가
+                                // controlIndex 증가
                                 controlIndex++;
                             }
                         }
@@ -96,6 +108,7 @@ namespace _2023_6_C_Project
                 }
             }
         }
+
 
         private void SetupLable()
         {

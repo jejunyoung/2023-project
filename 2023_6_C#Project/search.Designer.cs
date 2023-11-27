@@ -75,17 +75,18 @@
             // 
             txtSearch.BackColor = SystemColors.Menu;
             txtSearch.BorderStyle = BorderStyle.None;
-            txtSearch.Font = new Font("강원교육현옥샘 Medium", 30F, FontStyle.Bold, GraphicsUnit.Point);
+            txtSearch.Font = new Font("Noto Sans KR", 30F, FontStyle.Bold, GraphicsUnit.Point);
             txtSearch.Location = new Point(58, 110);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(507, 46);
+            txtSearch.Size = new Size(507, 58);
             txtSearch.TabIndex = 18;
             // 
             // btnSearch
             // 
+            btnSearch.Font = new Font("Noto Sans KR", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnSearch.Location = new Point(585, 110);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(105, 46);
+            btnSearch.Size = new Size(105, 58);
             btnSearch.TabIndex = 19;
             btnSearch.Text = "검색";
             btnSearch.UseVisualStyleBackColor = true;
