@@ -104,7 +104,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Login";
             Load += Login_Load;
             ResumeLayout(false);
             PerformLayout();

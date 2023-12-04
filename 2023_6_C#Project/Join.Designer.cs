@@ -46,7 +46,6 @@
             txtId.PlaceholderText = "아이디";
             txtId.Size = new Size(311, 74);
             txtId.TabIndex = 0;
-            txtId.KeyPress += txtId_KeyPress;
             // 
             // txtPwd
             // 
@@ -58,7 +57,6 @@
             txtPwd.PlaceholderText = "비밀번호";
             txtPwd.Size = new Size(350, 74);
             txtPwd.TabIndex = 1;
-            txtPwd.KeyPress += txtPwd_KeyPress;
             // 
             // txtName
             // 
@@ -70,7 +68,6 @@
             txtName.PlaceholderText = "이름";
             txtName.Size = new Size(350, 74);
             txtName.TabIndex = 2;
-            txtName.KeyPress += txtName_KeyPress;
             // 
             // btnCheckId
             // 
@@ -115,7 +112,6 @@
             Name = "Join";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Join";
-            Load += Join_Load;
             ResumeLayout(false);
             PerformLayout();
         }
