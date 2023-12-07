@@ -100,11 +100,11 @@ namespace _2023_6_C_Project
                 }
                 else if (!ValidateUserId(txtId.Text))
                 {
-                    MessageBox.Show("아이디는 영어, 한국어,숫자만 사용이 가능합니다");
+                    MessageBox.Show("아이디는 영어,숫자만 사용이 가능합니다");
                 }
                 else if (!ValidateUserPw(txtPwd.Text))
                 {
-                    MessageBox.Show("비밀번호는 영어, 한국어,숫자, 특수문자만 사용이 가능합니다");
+                    MessageBox.Show("비밀번호는 영어, 숫자, 특수문자만 사용이 가능합니다");
                 }
                 else if (!ValidateUserName(txtName.Text))
                 {
@@ -121,13 +121,13 @@ namespace _2023_6_C_Project
 
         private bool ValidateUserId(string userId)
         {
-            string pattern = "^[a-zA-Z0-9가-힣]+$";
+            string pattern = "^[a-zA-Z0-9]+$";
             return Regex.IsMatch(userId, pattern);
         }
 
         private bool ValidateUserPw(string userPw)
         {
-            string pattern = "^[a-zA-Z0-9가-힣!@#$%^&*()-_+=<>?]+$";
+            string pattern = "^[a-zA-Z0-9!@#$%^&*()-_+=<>?]+$";
             return Regex.IsMatch(userPw, pattern);
         }
         private bool ValidateUserName(string userName)
