@@ -126,7 +126,7 @@
             readDonePic.SizeMode = PictureBoxSizeMode.Zoom;
             readDonePic.TabIndex = 22;
             readDonePic.TabStop = false;
-            readDonePic.Click += readDonePic_Click;
+            readDonePic.Click += readDonePic_Click_1;
             // 
             // searchLogo
             // 
@@ -337,7 +337,6 @@
             Name = "DSearch";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DetailedSearch";
-            Load += DetailedSearch_Load;
             ((System.ComponentModel.ISupportInitialize)mainLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)readDonePic).EndInit();
             ((System.ComponentModel.ISupportInitialize)searchLogo).EndInit();

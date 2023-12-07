@@ -75,7 +75,7 @@
             // 
             labReadDone.AutoSize = true;
             labReadDone.Font = new Font("Noto Sans KR", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            labReadDone.Location = new Point(89, 161);
+            labReadDone.Location = new Point(89, 116);
             labReadDone.Name = "labReadDone";
             labReadDone.Size = new Size(109, 27);
             labReadDone.TabIndex = 32;
@@ -86,7 +86,7 @@
             // 
             labReading.AutoSize = true;
             labReading.Font = new Font("Noto Sans KR", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            labReading.Location = new Point(326, 161);
+            labReading.Location = new Point(326, 116);
             labReading.Name = "labReading";
             labReading.Size = new Size(90, 27);
             labReading.TabIndex = 33;
@@ -97,7 +97,7 @@
             // 
             labReadLike.AutoSize = true;
             labReadLike.Font = new Font("Noto Sans KR", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            labReadLike.Location = new Point(542, 151);
+            labReadLike.Location = new Point(542, 106);
             labReadLike.Name = "labReadLike";
             labReadLike.Size = new Size(126, 30);
             labReadLike.TabIndex = 34;
@@ -108,7 +108,7 @@
             flowLayoutPanel2.BackColor = SystemColors.GradientInactiveCaption;
             flowLayoutPanel2.BackgroundImageLayout = ImageLayout.None;
             flowLayoutPanel2.BorderStyle = BorderStyle.FixedSingle;
-            flowLayoutPanel2.Location = new Point(542, 181);
+            flowLayoutPanel2.Location = new Point(542, 136);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(140, 5);
             flowLayoutPanel2.TabIndex = 40;
@@ -133,6 +133,7 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 42;
             pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
             // 
             // searchLogo
             // 
@@ -144,6 +145,7 @@
             searchLogo.SizeMode = PictureBoxSizeMode.Zoom;
             searchLogo.TabIndex = 43;
             searchLogo.TabStop = false;
+            searchLogo.Click += searchLogo_Click;
             // 
             // pictureBox6
             // 

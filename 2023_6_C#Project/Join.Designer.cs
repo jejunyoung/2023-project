@@ -112,6 +112,7 @@
             Name = "Join";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Join";
+            Load += Join_Load;
             ResumeLayout(false);
             PerformLayout();
         }

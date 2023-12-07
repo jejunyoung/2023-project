@@ -216,6 +216,7 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 51;
             pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
             // 
             // searchLogo
             // 
@@ -227,6 +228,7 @@
             searchLogo.SizeMode = PictureBoxSizeMode.Zoom;
             searchLogo.TabIndex = 52;
             searchLogo.TabStop = false;
+            searchLogo.Click += searchLogo_Click;
             // 
             // pictureBox6
             // 

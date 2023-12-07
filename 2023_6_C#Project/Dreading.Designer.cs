@@ -216,6 +216,7 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 50;
             pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
             // 
             // searchLogo
             // 
@@ -227,12 +228,13 @@
             searchLogo.SizeMode = PictureBoxSizeMode.Zoom;
             searchLogo.TabIndex = 51;
             searchLogo.TabStop = false;
+            searchLogo.Click += searchLogo_Click;
             // 
             // pictureBox6
             // 
             pictureBox6.BackColor = SystemColors.ButtonFace;
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(564, 862);
+            pictureBox6.Location = new Point(573, 841);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(149, 89);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;

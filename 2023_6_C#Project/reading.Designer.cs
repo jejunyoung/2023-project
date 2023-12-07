@@ -75,7 +75,7 @@
             // 
             labReadDone.AutoSize = true;
             labReadDone.Font = new Font("Noto Sans KR", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            labReadDone.Location = new Point(89, 161);
+            labReadDone.Location = new Point(89, 116);
             labReadDone.Name = "labReadDone";
             labReadDone.Size = new Size(109, 27);
             labReadDone.TabIndex = 31;
@@ -86,7 +86,7 @@
             // 
             labReading.AutoSize = true;
             labReading.Font = new Font("Noto Sans KR", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            labReading.Location = new Point(326, 151);
+            labReading.Location = new Point(326, 106);
             labReading.Name = "labReading";
             labReading.Size = new Size(100, 30);
             labReading.TabIndex = 32;
@@ -96,7 +96,7 @@
             // 
             labReadLike.AutoSize = true;
             labReadLike.Font = new Font("Noto Sans KR", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            labReadLike.Location = new Point(542, 161);
+            labReadLike.Location = new Point(542, 116);
             labReadLike.Name = "labReadLike";
             labReadLike.Size = new Size(113, 27);
             labReadLike.TabIndex = 33;
@@ -123,6 +123,7 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 35;
             pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
             // 
             // searchLogo
             // 
@@ -134,6 +135,7 @@
             searchLogo.SizeMode = PictureBoxSizeMode.Zoom;
             searchLogo.TabIndex = 36;
             searchLogo.TabStop = false;
+            searchLogo.Click += searchLogo_Click;
             // 
             // pictureBox6
             // 
@@ -160,7 +162,7 @@
             flowLayoutPanel2.BackColor = SystemColors.GradientInactiveCaption;
             flowLayoutPanel2.BackgroundImageLayout = ImageLayout.None;
             flowLayoutPanel2.BorderStyle = BorderStyle.FixedSingle;
-            flowLayoutPanel2.Location = new Point(319, 181);
+            flowLayoutPanel2.Location = new Point(319, 136);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(120, 5);
             flowLayoutPanel2.TabIndex = 39;

@@ -103,10 +103,5 @@ namespace _2023_6_C_Project
                 e.Handled = true; // 입력된 문자를 처리하지 않음
             }
         }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

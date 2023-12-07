@@ -246,6 +246,8 @@ namespace _2023_6_C_Project //test
 
             return "ISBN 정보를 찾을 수 없습니다.";
         }
+
+        //이동(메인화면)
         private void mainLogo_Click(object sender, EventArgs e)
         {
             Main form = new Main();
@@ -254,6 +256,7 @@ namespace _2023_6_C_Project //test
             Application.Exit();
         }
 
+        //이동(책 저장관)
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             readDone form = new readDone();
@@ -262,12 +265,27 @@ namespace _2023_6_C_Project //test
             Application.Exit();
         }
 
+        //이동(사용자 설정)
         private void pictureBox6_Click(object sender, EventArgs e)
         {
             Preferences form = new Preferences();
             this.Hide();
             form.ShowDialog();
             Application.Exit();
+        }
+
+        //이동(검색창)
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            search form = new search();
+            this.Hide();
+            form.ShowDialog();
+            Application.Exit();
+        }
+
+        private void search_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

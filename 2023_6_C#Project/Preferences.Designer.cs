@@ -141,6 +141,7 @@
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 82;
             pictureBox6.TabStop = false;
+            pictureBox6.Click += pictureBox6_Click;
             // 
             // labName
             // 
@@ -157,6 +158,7 @@
             txtName.Font = new Font("Noto Sans KR", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
             txtName.Location = new Point(206, 206);
             txtName.Name = "txtName";
+            txtName.ReadOnly = true;
             txtName.Size = new Size(406, 47);
             txtName.TabIndex = 84;
             // 
@@ -165,6 +167,7 @@
             txtId.Font = new Font("Noto Sans KR", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
             txtId.Location = new Point(228, 333);
             txtId.Name = "txtId";
+            txtId.ReadOnly = true;
             txtId.Size = new Size(384, 47);
             txtId.TabIndex = 85;
             // 

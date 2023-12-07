@@ -42,7 +42,8 @@ namespace _2023_6_C_Project
                 {
                     MessageBox.Show("사용할 수 없는 아이디입니다"); // 이미 존재하는 아이디인 경우 메시지 표시
                 }
-                else if (!ValidateUserId(txtId.Text)){
+                else if (!ValidateUserId(txtId.Text))
+                {
                     MessageBox.Show("아이디는 영어, 숫자, 한국어만 사용이 가능합니다");
                 }
                 else
@@ -118,22 +119,30 @@ namespace _2023_6_C_Project
         }
 
 
-
+        //아이디 정규식 표현
         private bool ValidateUserId(string userId)
         {
             string pattern = "^[a-zA-Z0-9]+$";
             return Regex.IsMatch(userId, pattern);
         }
 
+        //비밀번호 정규식 표현
         private bool ValidateUserPw(string userPw)
         {
             string pattern = "^[a-zA-Z0-9!@#$%^&*()-_+=<>?]+$";
             return Regex.IsMatch(userPw, pattern);
         }
+
+        //이름 정규식 표현
         private bool ValidateUserName(string userName)
         {
             string pattern = "^[a-zA-Z가-힣]+$";
             return Regex.IsMatch(userName, pattern);
+        }
+
+        private void Join_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

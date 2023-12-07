@@ -147,6 +147,7 @@
             label1.Size = new Size(236, 84);
             label1.TabIndex = 4;
             label1.Text = "책장 모아";
+            label1.Click += MainLogo;
             // 
             // pictureBox1
             // 
@@ -223,6 +224,7 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 15;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += MainLogo;
             // 
             // picBook1
             // 
@@ -882,6 +884,7 @@
             pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox7.TabIndex = 76;
             pictureBox7.TabStop = false;
+            pictureBox7.Click += MainLogo;
             // 
             // Main
             // 

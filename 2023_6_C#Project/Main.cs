@@ -26,17 +26,12 @@ namespace _2023_6_C_Project
             SetupLable();
         }
 
+        //이동(검색창)
         private void search_Click(object sender, EventArgs e)
         {
             search form = new search(); // 새로운 search 폼 인스턴스 생성
             this.Hide(); // 현재 창 숨기기
             form.ShowDialog();//  폼 열기
-        }
-        private void textBox1_Click_1(object sender, EventArgs e)
-        {
-            search form = new search();// search 폼 인스턴스 생성
-            this.Close();  // 현재 폼 숨기기
-            form.ShowDialog();  // search 폼 열기
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -47,9 +42,19 @@ namespace _2023_6_C_Project
             Application.Exit();
         }
 
+        //이동(사용자 설정)
         private void pictureBox6_Click(object sender, EventArgs e)
         {
             Preferences form = new Preferences();
+            this.Hide();
+            form.ShowDialog();
+            Application.Exit();
+        }
+
+        //이동(메인화면)
+        private void MainLogo(object sender, EventArgs e)
+        {
+            Main form = new Main();
             this.Hide();
             form.ShowDialog();
             Application.Exit();
@@ -112,11 +117,11 @@ namespace _2023_6_C_Project
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message); // 예외 발생 시 메시지 박스로 에러 메시지 출력
             }
         }
 
-
+        //디자인 쪽에 사용하고 싶지만 적용이 않되서 여기 적용
         private void SetupLable()
         {
             labBook1.Parent = picBook1;

@@ -114,6 +114,7 @@
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 22;
             pictureBox5.TabStop = false;
+            pictureBox5.Click += pictureBox5_Click;
             // 
             // pictureBox6
             // 
@@ -182,6 +183,7 @@
             Name = "search";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "search";
+            Load += search_Load;
             ((System.ComponentModel.ISupportInitialize)mainLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();

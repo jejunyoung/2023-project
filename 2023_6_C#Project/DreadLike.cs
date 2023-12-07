@@ -21,25 +21,28 @@ namespace _2023_6_C_Project
         public DreadLike(string readLikeBookID)
         {
             InitializeComponent();
-            this.readLikeBookID = readLikeBookID;
-            userNum = Program.UserNum;
+            this.readLikeBookID = readLikeBookID; //책 번호 가져오기
+            userNum = Program.UserNum; //pragranm에서 사용자 번호 가져오기
         }
 
         private void DreadLike_Load(object sender, EventArgs e)
         {
             try
             {
+                // MySQL 데이터베이스 연결 문자열
                 string connectionString = "Server=mysql6.c3ts2gxxyaaf.ap-northeast-2.rds.amazonaws.com;Database=mybook;Uid=mydb;Pwd=12345678;";
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    connection.Open();
+                    connection.Open(); // 데이터베이스 연결
 
+                    // MySQL 쿼리문
                     string query = "SELECT readLikeTbl.bookID, booktbl.bookCover, booktbl.bookName, readLikeTbl.bookReport " +
                    "FROM readLikeTbl " +
                    "INNER JOIN booktbl ON readLikeTbl.bookID = booktbl.bookID " +
                    "WHERE readLikeTbl.userNum = @userNum AND readLikeTbl.bookID = @readLikeBookID";
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
+                        // 쿼리 파라미터 설정
                         command.Parameters.AddWithValue("@userNum", userNum);
                         command.Parameters.AddWithValue("@readLikeBookID", readLikeBookID);
 
@@ -56,6 +59,7 @@ namespace _2023_6_C_Project
                                 {
                                     using (WebClient webClient = new WebClient())
                                     {
+                                        //이미지 표시
                                         byte[] imageData = webClient.DownloadData(imageUrl);
 
                                         using (System.IO.MemoryStream ms = new System.IO.MemoryStream(imageData))
@@ -74,10 +78,11 @@ namespace _2023_6_C_Project
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message); // 예외 발생 시 메시지 박스로 에러 메시지 출력
             }
         }
 
+        //이동(뒤로)
         private void picBack_Click(object sender, EventArgs e)
         {
             readLike form = new readLike();
@@ -86,23 +91,27 @@ namespace _2023_6_C_Project
             Application.Exit();
         }
 
+        //메모 저장 메서드
         private void UpdateBookReport()
         {
             try
             {
                 string bookReportText = txtReport.Text; // 라벨2의 텍스트를 가져옵니다.
 
+                // MySQL 데이터베이스 연결 문자열
                 string connectionString = "Server=mysql6.c3ts2gxxyaaf.ap-northeast-2.rds.amazonaws.com;Database=mybook;Uid=mydb;Pwd=12345678;";
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    connection.Open();
+                    connection.Open(); // 데이터베이스 연결
 
+                    // MySQL 쿼리문
                     string query = "UPDATE readLikeTbl SET bookReport = @bookReport " +
                     "WHERE userNum = @userNum AND bookID = @readLikeBookID";
 
 
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
+                        // 쿼리 파라미터 설정
                         command.Parameters.AddWithValue("@userNum", userNum);
                         command.Parameters.AddWithValue("@readLikeBookID", readLikeBookID);
                         command.Parameters.AddWithValue("@bookReport", bookReportText); // 라벨2의 텍스트를 파라미터로 설정
@@ -123,33 +132,37 @@ namespace _2023_6_C_Project
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message); // 예외 발생 시 메시지 박스로 에러 메시지 출력
             }
         }
 
         private void picSave_Click(object sender, EventArgs e)
         {
-            UpdateBookReport();
+            UpdateBookReport(); //메모 저장 메서드 호출
         }
 
         private void labSave_Click(object sender, EventArgs e)
         {
-            UpdateBookReport();
+            UpdateBookReport();//메모 저장 메서드 호출
         }
 
+        //메모 삭제 메서드
         private void DeleteRecord()
         {
             try
             {
+                // MySQL 데이터베이스 연결 문자열
                 string connectionString = "Server=mysql6.c3ts2gxxyaaf.ap-northeast-2.rds.amazonaws.com;Database=mybook;Uid=mydb;Pwd=12345678;";
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    connection.Open();
+                    connection.Open(); // 데이터베이스 연결
 
+                    // MySQL 쿼리문
                     string query = "DELETE FROM readLikeTbl WHERE userNum = @userNum AND bookID = @readLikeBookID";
 
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
+                        // 쿼리 파라미터 설정
                         command.Parameters.AddWithValue("@userNum", userNum);
                         command.Parameters.AddWithValue("@readLikeBookID", readLikeBookID);
 
@@ -158,6 +171,7 @@ namespace _2023_6_C_Project
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("레코드가 성공적으로 삭제되었습니다.");
+                            //이동(뒤로)
                             readLike form = new readLike();
                             this.Hide();
                             form.ShowDialog();
@@ -172,20 +186,21 @@ namespace _2023_6_C_Project
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message); // 예외 발생 시 메시지 박스로 에러 메시지 출력
             }
         }
 
         private void picDelete_Click(object sender, EventArgs e)
         {
-            DeleteRecord();
+            DeleteRecord(); //메모 삭제 메서드 호출
         }
 
         private void labDelete_Click(object sender, EventArgs e)
         {
-            DeleteRecord();
+            DeleteRecord();//메모 삭제 메서드 호출
         }
-
+        
+        //이동(메인화면)
         private void mainLogo_Click(object sender, EventArgs e)
         {
             Main form = new Main();
@@ -194,6 +209,7 @@ namespace _2023_6_C_Project
             Application.Exit();
         }
 
+        //이동(메인화면)
         private void label1_Click(object sender, EventArgs e)
         {
             Main form = new Main();
@@ -202,6 +218,7 @@ namespace _2023_6_C_Project
             Application.Exit();
         }
 
+        //이동(메인화면)
         private void pictureBox7_Click(object sender, EventArgs e)
         {
             Main form = new Main();
@@ -210,6 +227,7 @@ namespace _2023_6_C_Project
             Application.Exit();
         }
 
+        //이동(사용자 설정)
         private void pictureBox6_Click(object sender, EventArgs e)
         {
             Preferences form = new Preferences();
@@ -217,7 +235,8 @@ namespace _2023_6_C_Project
             form.ShowDialog();
             Application.Exit();
         }
-
+        
+        //이동(책 저장관)
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             readDone form = new readDone();
@@ -226,6 +245,7 @@ namespace _2023_6_C_Project
             Application.Exit();
         }
 
+        //이동(검색창)
         private void searchLogo_Click(object sender, EventArgs e)
         {
             search form = new search();

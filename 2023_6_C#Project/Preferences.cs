@@ -3,9 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
@@ -19,7 +21,7 @@ namespace _2023_6_C_Project
         public Preferences()
         {
             InitializeComponent();
-            userNum = Program.UserNum;
+            userNum = Program.UserNum; //program에서 사용자 번호 가져오기
 
         }
 
@@ -66,7 +68,7 @@ namespace _2023_6_C_Project
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);// 예외 발생 시 메시지 박스로 에러 메시지 출력
             }
         }
 
@@ -78,72 +80,86 @@ namespace _2023_6_C_Project
                 // 새 비밀번호를 텍스트 상자에서 가져오기
                 string txtCPw = txtPw.Text;
 
-                // MySQL 데이터베이스에 연결하기 위한 연결 문자열 정의
-                string connectionString = "Server=mysql6.c3ts2gxxyaaf.ap-northeast-2.rds.amazonaws.com;Database=mybook;Uid=mydb;Pwd=12345678;";
-
-                // MySqlConnection을 사용하여 MySQL 데이터베이스에 연결하고 연결 열기
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                if (ValidateUserPw(txtPw.Text))
                 {
-                    connection.Open();
+                    // MySQL 데이터베이스에 연결하기 위한 연결 문자열 정의
+                    string connectionString = "Server=mysql6.c3ts2gxxyaaf.ap-northeast-2.rds.amazonaws.com;Database=mybook;Uid=mydb;Pwd=12345678;";
 
-                    // 새 비밀번호와 확인 비밀번호가 일치하는지 확인
-                    if (txtPw.Text == txtPw2.Text)
+                    // MySqlConnection을 사용하여 MySQL 데이터베이스에 연결하고 연결 열기
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
-                        // 사용자 테이블에서 비밀번호를 업데이트하는 SQL 쿼리 정의
-                        string query = "UPDATE usertbl " +
-                                       "SET userPw = @userPw " +
-                                       "WHERE userNum = @userNum";
+                        connection.Open();
 
-                        // MySqlCommand 객체를 생성하고 매개변수를 추가하여 SQL 쿼리를 설정
-                        using (MySqlCommand command = new MySqlCommand(query, connection))
+                        // 새 비밀번호와 확인 비밀번호가 일치하는지 확인
+                        if (txtPw.Text == txtPw2.Text)
                         {
-                            command.Parameters.AddWithValue("@userPw", txtCPw);
-                            command.Parameters.AddWithValue("@userNum", userNum);
+                            // 사용자 테이블에서 비밀번호를 업데이트하는 SQL 쿼리 정의
+                            string query = "UPDATE usertbl " +
+                                           "SET userPw = @userPw " +
+                                           "WHERE userNum = @userNum";
 
-                            try
+                            // MySqlCommand 객체를 생성하고 매개변수를 추가하여 SQL 쿼리를 설정
+                            using (MySqlCommand command = new MySqlCommand(query, connection))
                             {
-                                // SQL 쿼리 실행 및 영향 받은 행 수 확인
-                                int rowsAffected = command.ExecuteNonQuery();
+                                command.Parameters.AddWithValue("@userPw", txtCPw);
+                                command.Parameters.AddWithValue("@userNum", userNum);
 
-                                // 영향 받은 행이 있으면 비밀번호 변경 성공 메시지 출력 및 로그인 폼 열기
-                                if (rowsAffected > 0)
+                                try
                                 {
-                                    MessageBox.Show("비밀번호 변경이 성공했습니다");
+                                    // SQL 쿼리 실행 및 영향 받은 행 수 확인
+                                    int rowsAffected = command.ExecuteNonQuery();
 
-                                    // 로그인 폼 열기
-                                    Login form = new Login();
-                                    this.Hide();
-                                    form.ShowDialog();
-                                    Application.Exit();
+                                    // 영향 받은 행이 있으면 비밀번호 변경 성공 메시지 출력 및 로그인 폼 열기
+                                    if (rowsAffected > 0)
+                                    {
+                                        MessageBox.Show("비밀번호 변경이 성공했습니다");
+
+                                        // 로그인 폼 열기
+                                        Login form = new Login();
+                                        this.Hide();
+                                        form.ShowDialog();
+                                        Application.Exit();
+                                    }
+                                    else
+                                    {
+                                        // 영향 받은 행이 없는 경우 메시지 출력
+                                        MessageBox.Show("업데이트된 행이 없습니다. 조건을 확인하세요.");
+                                    }
                                 }
-                                else
+                                catch (Exception ex)
                                 {
-                                    // 영향 받은 행이 없는 경우 메시지 출력
-                                    MessageBox.Show("업데이트된 행이 없습니다. 조건을 확인하세요.");
+                                    // 오류가 발생한 경우 메시지 출력
+                                    MessageBox.Show($"오류 발생: {ex.Message}");
                                 }
-                            }
-                            catch (Exception ex)
-                            {
-                                // 오류가 발생한 경우 메시지 출력
-                                MessageBox.Show($"오류 발생: {ex.Message}");
                             }
                         }
-                    }
-                    else
-                    {
-                        // 새 비밀번호와 확인 비밀번호가 일치하지 않는 경우 메시지 출력
-                        MessageBox.Show("비밀번호 확인과 다른 비밀번호입니다");
+                        else
+                        {
+                            // 새 비밀번호와 확인 비밀번호가 일치하지 않는 경우 메시지 출력
+                            MessageBox.Show("비밀번호 확인과 다른 비밀번호입니다");
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("비밀번호는 영어, 숫자, 특수문자만 사용이 가능합니다");
+                }               
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message); // 예외 발생 시 메시지 박스로 에러 메시지 출력
             }
         }
 
+        //비밀번호 정규 표현식
+        private bool ValidateUserPw(string userPw)
+        {
+            string pattern = "^[a-zA-Z0-9!@#$%^&*()-_+=<>?]+$";
+            return Regex.IsMatch(userPw, pattern);
+        }
 
 
+        //이동(로그인화면) , 로그아웃
         private void labLogOut_Click(object sender, EventArgs e)
         {
             Login form = new Login();
@@ -152,6 +168,7 @@ namespace _2023_6_C_Project
             Application.Exit();
         }
 
+        //이동(메인화면)
         private void mainLogo_Click(object sender, EventArgs e)
         {
             Main form = new Main();
@@ -160,6 +177,7 @@ namespace _2023_6_C_Project
             Application.Exit();
         }
 
+        //이동(책 저장관)
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             readDone form = new readDone();
@@ -168,9 +186,19 @@ namespace _2023_6_C_Project
             Application.Exit();
         }
 
+        //이동(검색창)
         private void searchLogo_Click(object sender, EventArgs e)
         {
             search form = new search();
+            this.Hide();
+            form.ShowDialog();
+            Application.Exit();
+        }
+
+        //이동(사용자 설정)
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            Preferences form = new Preferences();
             this.Hide();
             form.ShowDialog();
             Application.Exit();
