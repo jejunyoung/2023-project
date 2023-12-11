@@ -54,6 +54,7 @@
             txtPwd.Font = new Font("Noto Sans KR", 38.25F, FontStyle.Bold, GraphicsUnit.Point);
             txtPwd.Location = new Point(203, 502);
             txtPwd.Name = "txtPwd";
+            txtPwd.PasswordChar = '*';
             txtPwd.PlaceholderText = "비밀번호";
             txtPwd.Size = new Size(350, 74);
             txtPwd.TabIndex = 1;
